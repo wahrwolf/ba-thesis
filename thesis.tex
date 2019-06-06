@@ -111,7 +111,7 @@
 
 %\lstloadlanguages{C}                   % Set the default language for listings
 \DeclareGraphicsExtensions{.pdf,.svg,.jpg,.png,.eps} % first try pdf, then eps, png and jpg
-\graphicspath{{./src/}}                 % Path to a folder where all pictures are located
+\graphicspath{{./img/}}                 % Path to a folder where all pictures are located
 \pagestyle{fancy}                       % Use nicer header and footer
 
 % Redefine the environments for floating objects:
@@ -248,14 +248,14 @@
 \section*{Abstract}\label{sec:abstract}
 %\fancyhead[LE,RO]{\it Abstract}
 %\addcontentsline{toc}{chapter}{\numberline{}Abstract}
-Your English abstract here (mandatory if written in English and recommended otherwise).
+\input{"abstract-en.tex"}
 
 % If the abstract ist not longer than half a page, then the German Zusammenfassung can be places on the same page
 %\cleardoublepage
 \vfill
 \section*{Zusammenfassung}\label{sec:zusammenfassung}
 %\addcontentsline{toc}{chapter}{\numberline{}Zusammenfassung} %Add the Zusammenfassung to the TOC
-Hier die deutsche Zusammenfassung einf\"ugen (notwendig).
+\input{"abstract-de.tex"}
 \fancyhead[LE,RO]{\it Abstract}
 
 \cleardoublepage
@@ -284,7 +284,6 @@ Hier die deutsche Zusammenfassung einf\"ugen (notwendig).
 % The content will be included here:
 \pagenumbering{arabic}
 
-\input{"abstract.tex"}
 \input{"chapters.tex"}
 
 
