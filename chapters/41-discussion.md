@@ -12,11 +12,8 @@
 	- how much improvement or why not?
 - how big is the difference on distant languages?
 
-## future perspective
+## other perspective (manöverkritik)
 ### my work
-- more domains
-- more different labels/multi labels
-- different model/attention 
 - assemment methodic (I KNOW that overfitting is unlikely (as show in results), I CAN NOT PROOVE that gloabl maxximum was found (bc))
 - disclaimer of local minima
 
@@ -30,3 +27,15 @@
 - hyper parameter optimierung
 - integration of preparation tools
 - corpus store
+
+## future work
+### on domain control mechnasim
+- test other dcm with multi language
+
+### on other languages
+- pls translate all big corpora into all languages
+
+### followup
+- more domains
+- more different labels/multi labels
+- different model/attention 
