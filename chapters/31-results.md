@@ -3,6 +3,11 @@
 - verteilung von word_length, number of words, (weitere?)
 - 2x gruppierte Boxplots mit Gruppen: EMEA, ECB, Euro und Farben: Original und reduced
 
+## training details
+- 18 epochs
+- how many hours
+- which 
+
 ## proof of concept:
 - trainings accuracry steigt
 - valdieirungs accuracy steigt
