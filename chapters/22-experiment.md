@@ -10,9 +10,9 @@ The units were than combined into a trainings set (~70,000 example sentence) and
 To ensure that the resulting data sets were representive to the orginal domain corpora, I calculated the distribution of the word length and the number of words per sentence.
 
 #### Languages
-The choosen corpora are all from european sources, so I decided to use language pairs from the EU countries.
 Since I can understand booth, English and German, I choose those as the first langauge pair.
-In the European Langauge Area, Czech is one of the more distant lanauges from German since it is not a Roman langauge \TODO{Reference}.
+I used English as the source language and choose German as a related languge and Czech as a distant language.
+According to the FSI (https://www.state.gov/key-topics-foreign-service-institute/foreign-language-training/) German classifies as a Category II (moderate) and Czech as a Category III (Hard) language.
 All corpora where available in those pairs.
 
 ### Preparation
@@ -47,6 +47,6 @@ For the further comparison only the best models per data set where choosen.
 ### evaluation of the domain control mechanism
 The best models from the hyper parameter optimization were then used to translate 4 texts with each 10,000 example sentences.
 For each domain one text was picked random from the orignal domain and one with equal parts from all 3 domains.
-Each of the 4 texts was than compared to the reference translation and scored using BLEU
+Each of the 4 texts was than compared to the reference translation and scored using BLEU.
 
 The difference of the models within one langauge pair is compared to the difference in the other language pair.
