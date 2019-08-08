@@ -57,7 +57,10 @@ As expected the related language pair had archived better scores overall domains
 
 \TODO{write something about the different domains}
 
-However the model that was trained without prefix constraint performances better.
-While the difference is pretty small for related languages, it is notable different for the distant language pair.
+However depending on the scoring metric, there were huge differences in the actual performance change between the pairs.
+The models that were trained with prefix constraints archieved a higher trainings and validation accuracy, however only in the CZ-EN pair.
+In the DE-EN pair was not noticeable difference in the trainings statistic.
 
-\TODO{adress valid train score missmatch}
+For more content focused scores like BLEU or ROUGE \TODO{add table with socres} the prefix constraints impacted the score slightly negative.
+
+While the difference is pretty small for related languages, it is notable different for the distant language pair.
