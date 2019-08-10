@@ -57,11 +57,11 @@ All models were trained multiple times to ensure proper distribution of start ve
 On all models 1000 sentences from the valdiation set where translated.
 The translations were stripped from the BPE and compared to the reference texts using BLEU, METEOR and ROUGE\_L.
 The scores where than used to find the best model.
-For the further comparison only, 
 
 ## Comparison and evaluation of the domain control mechanism
 ### evaluation of the domain control mechanism
-The translations from the best models for all four corpora were than split into the three domains.
+The best models for all four corpora were than used to translate three domain only and one mixed text.
+Each text had 900 example sentences, which were chosen randomly from the original source.
 The three metrics were calculated on the domain texts and the combined text.
 
-For the evaluation I calculated the differences between the training with and without prefix constraints for both language paris and all four texts.
+For the evaluation I calculated the differences between the training with and without prefix constraints for both language pairs and all four texts.
