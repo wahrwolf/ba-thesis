@@ -9,11 +9,9 @@ I tried to find a way to restore the document structure from the source corpora 
 However I did not find a fitting index for my data sets, so I searched for logical units manually and used the references to split the corpora.
 Since I do not speak Czech, I copied the positions from the EN-DE data and applied the splits.
 I choose the number of words and word length as two simple metrics to evaluate the new distribution.
-As seen in \figure{corpus_stats} the characteristics are not perfectly aligned with the source corpora, but are unique enough, so that no reduced sets are more similar to other corpus.
+As seen in \figure{corpus_stats} the characteristics are not perfectly aligned with the source corpora, but are unique enough, so that no reduced sets are to alike.
 In the EMEA corpus, the word length distribution differs visible.
 Since this corpus contains a lot of brand names, I assumed that the variation in splits will be always quite high.
-The training was not repeated with other splits.
-
 
 ### Model Training and Selection
 #### Training
@@ -23,53 +21,36 @@ As show and described in the \reference{broken train run} some models had issues
 The second group of curves like \reference{bad train run} produced some results, but did not performed very well.
 I assume that the trainings corpus was too small or the trainings period to short.
 The last group achieved reasonable results. The validation accuracy indicates no over fitting, but the difference to the trainings accuracy shows additional potential with a larger data set.
-Because my reduced data sets varied slightly from the original corpora metrics, I can not generalize any behavior for the whole corpus, however the general similarity indicates at least a tendecy.
+Because my reduced data sets varied slightly from the original corpora metrics, I can not generalize any behavior for the whole corpus, however the general similarity indicates at least a tendency.
 
 ### Hyper Parameter Selection
-I used a simple network model with a stable and well tested implementation and tested only a subset of the available hyper parameter.
+I used a simple network model with a stable and well tested implementation and tested subset of the available hyper parameter.
 The model and attention system were taken from the \reference{sennrich} and \reference{kobus}.
-The hyper parameter were choosen from differences between the runs and the comparison of common values \referece{opennmt suggested values}.
+The hyper parameter were chosen from differences between the runs and the comparison of common values \referece{opennmt suggested values}.
 Since I created the corpus from scratch, I could not use any existing baseline to compare my scores with.
-After the training I used ROUGEL and BLEU to rank the models.
-The ROUGE\_L score rewards longer subsequences.
-Since the domain corpora differ in word length I used the ROUGE score to determine the best model in terms of multi domain translation.
+After the training I used ROUGE_L, BLEU  and METEOR to rank the models.
+ROUGE_L rewards longer subequences so I used it to test the performance on technical terms.
+BLEU works on a corpus base so I interpreted it as the similarity score for the whole document.
+METEOR scores single sentences and is known to perform similar to human judgement.
 
-In the comparison the models ranked differently depending on the domains. In future steps this can be compared with more domains.
-
-After I chose the best performing model for each corpus, I compared the scores and the score change directly \reference{prefix_constraint_comparison}.
+I picked the model that had ranked best over all three metrics on the validation set and used it to test my hypothesis.
 
 ### Scoring and Comparison
 #### Translation Performance Review
+In the \reference{result section} I described how the models performed according to METEOR.
 The performance is very different on the domains and the medical domain seems to be the easiest to learn.
 Since the law and finance domain have similar word and sentence length, it is not unexpected to see that they performed similar.
 
-The overall performance shows a slight improvement when prefix constraints were provided.
-However since the test set with 1000 examples was quite small, the distribution is not generalizable.
-I ran multiple scoring algorithm \reference{nlg-eval paper}, and most of them \refrence{results or some table} pointed in that direction. With additional calculation times, this can be easily proofed.
-
-As additional tests I suggest METEOR or any more sentence focused score.
+The overall performance shows a slight decrease when prefix constraints were provided.
+However since the test set with 1000 examples was quite small, the distribution may not be generalizable.
 
 #### Language Pair Comparison
 The scores of the different language models can not be compared directly \reference{bleu critique}.
 However the performance difference between the runs with and without prefix constraints show a certain pattern.
 
 As described in the \reference{result section} the performance differences within the domains were comparable.
-However the CS-EN pair showed an improvement on all domains and in all scores, when prefix constrained where available.
+However the CS-EN pair showed a higher decrease on all domains in all scores, when prefix constrained where available compared to DE-EN.
 
-In both language pairs, one domain showed nearly zero improvement, when prefix constraints were added.
-This indicates that the model used that domain as the default and learned to use the prefix constraints to match the domain.
-
-The effect was stronger in the distant language pair. In the related pair the performance actually suffered in the law domain.
-Since the prefix constraints add a new dimension of information to the text, the training becomes more complex and therefore harder.
-My data indicates that the prefix constraints reveals structural information that is already encoded in the text.
-The structural difference between the law and the finance domain was quite small in comparison to the medical domain.
-
-Therefore the model could learn part of the differences without the prefix constraints.
-The introduction of the constraints made it more complex and therefore the actual score decreased.
-
-The comparison of the scores indicates, that the addition of prefix constraints allows a network to produce longer sub-sequences and learn technical terms more efficiently.
-
-The model trained on the distant language pair had less structural similarity and could therefore harvest the first level of meta information.
 
 #### Short Summary
 The comparison of the performance change on different languages indicates that prefix constraints have a larger impact on distant languages.  As previously shown, prefix constraints seem to be beneficial especially on domain specific terms.
