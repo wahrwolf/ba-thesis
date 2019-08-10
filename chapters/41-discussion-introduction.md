@@ -51,6 +51,32 @@ However, the performance difference between the runs with and without prefix con
 As described in the \reference{result section}, the performance differences within the domains were comparable.
 However, the CS-EN pair showed a higher decrease on all domains in all scores, when prefix constrained where available compared to DE-EN.
 
+## Interpretation
+### Performance Impact Comparison of Prefix Constraints
+Prefix constraints add a new dimension of meta information to a text.
+The clear labeling of domains by tokens contradicts the representation of domains in natural texts.
+Therefore it impacts the performance of a translation systems on multiple level.
+
+The general addition of information to a trainings set should increase the performance of the trained models.
+However, the model still needs to understand the encoding of the information to benefit from it.
+
+In translation and language processing, a understanding of the structure and vocabulary is needed before the content can be parsed \reference{find some simple text}.
+
+In terms of neural machine translation, this means that the model has to learn certain basic features first, before it can benefit from meta information.
+
+The BLEU score represents the overall translation quality of a text.
+The graph in \figure{language-comparison} shows that data sets in a related language pair with only text from one domain suffer less and in law domain actually benefit from prefix constraints.
+However this distribution is completly switched in the distant pair.
+\TODO{was heißt das konkret, welche schlussfolgerung kann man hier ziehen?}
+
+The ROUGE score can be used to measure how well longer and therfore more technical terms have been learned.
+The comparison between the languages indicate that prefix constraints do not help here at all.
+In theory the prefix constrained should help with the translation of homonyms and domain specific jargon.
+However, this information is also encoded in the structural and semantic context.
+The tested domains had distinct structural differences and already provided context markers.
+
+The METEOR score is the metric that correlates most of human judgement
+
 
 #### Short Summary
 The comparison of the performance change in different languages indicates that prefix constraints have a larger impact on distant languages.  As previously shown, prefix constraints seem to be beneficial, especially on domain-specific terms.
