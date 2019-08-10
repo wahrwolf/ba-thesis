@@ -18,7 +18,7 @@ The generated translation were stripped from the BPE and scored using BLEU \TODO
 From the ranking \TODO{include table} the best model were choosen for each corpus.
 
 ## Scoring and Comparison
-The figure \TODO{side constraint comparison} shows the performance of the best model for the domain test sets calculated with bleu.
+The figure \TODO{side constraint comparison} shows the performance of the best model for the domain test sets calculated with ROUGEL.
 As expected the related language pair had archived better scores overall domains.
 
 \TODO{write something about the different domains}

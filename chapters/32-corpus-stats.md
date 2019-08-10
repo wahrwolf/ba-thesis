@@ -1,6 +1,6 @@
 ## Data Selection and Preparation
 ### Selection
-I choosed to include the three domains FINANCE, LAW and MEDICAL.
+I included the three domains FINANCE, LAW and MEDICAL.
 For the FINANCE domain I used version 1 of the website and documentation of the European Central Bank \TODO{reference j tiedemann). This corpus will be refereed as ECB.
 For the LAW domain I used version 7 of a parrellel coprus extracted from the European Parliament web site \TODO{reference philipp koehn}. This corpus will be referred as Europarl.
 For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency, which will be refereed as EMEA.
