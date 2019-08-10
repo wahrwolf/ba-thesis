@@ -1,52 +1,67 @@
 ## Data Selection and Preparation
 ### Selection
 #### Corpus
-In the original paper, the combined corpus hold \TODO{CHECK THOSE NUMBERS} 5 domains from partly comercial or restriced corpora.
-Since I had not the ressources or the time, I scaled the number of corpura and therfore domains down to 3.
-I decided to use the same open available corpora and choose to combine the ECB, Europarl and EMEA corpus.
+As \reference{kobus} did in their experiment, I build a trainings corpus with the content from multiple domains.
+I used the three domains FINANCE, LAW and MEDICAL for my experiments.
+These domain share certain semantic qualities like informality and a precise language.
+All three contain domain specific jargon.
 
-To reduce the trainings time I split the original corpora in logical units (e.g. a parlaments sitting).
-The units were than combined into a trainings set (~70,000 example sentence) and a valdidation set (~15,000 example sentence).
+For the FINANCE domain I used version 1 of the website and documentation of the European Central Bank \TODO{reference j tiedemann). This corpus will be refereed as ECB.
+For the LAW domain I used version 7 of a parrellel coprus extracted from the European Parliament web site \TODO{reference philipp koehn}. This corpus will be referred as Europarl.
+For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency, which will be refereed as EMEA.
+
+In the original paper, the trainings corpus consists of 5 domains from partly proprietary corpora.
+
+In contrast, all of my used corpora are available for free to everyone through the OPUS project \TODO{reference}.
+
+The corpora were splitted into smaller shards. Each shard represents one unit in the context of the document.
+The boundaries of the units were found by analyzing the German-English text and aplying closest possible splits on both langauge pairs.
+
+The shards were than merged together into a training- and a validation set, so that each corpus had roughly the same amount of example sentences in both sets.
+
 To ensure that the resulting data sets were representive to the orginal domain corpora, I calculated the distribution of the word length and the number of words per sentence.
 
 #### Languages
-Since I can understand booth, English and German, I choose those as the first langauge pair.
-I used English as the source language and choose German as a related languge and Czech as a distant language.
-According to the FSI (https://www.state.gov/key-topics-foreign-service-institute/foreign-language-training/) German classifies as a Category II (moderate) and Czech as a Category III (Hard) language.
+For the comparison I used Czech-English as a distant language pair and German-English as a related language pair.
+According to the FSI (https://www.state.gov/key-topics-foreign-service-institute/foreign-language-training/) German classifies as a Category II (moderate) and Czech as a Category III (Hard) language for an English speaker.
+For both pairs I used English as the source language.
 All corpora where available in those pairs.
 
 ### Preparation
-I applied Byte-Pair-Encoding to the reduced corpus and merged to 32000 symbols as done by \TODO{reference}.
-An uninque sequence was used to mark word endings and pairs.
+I used Byte Pair Encoding to equalize the number of tokens per text.
+For that I run the implementation of \TODO{sennrich bpe} and reduced the text into 32000 \TODO{double check} tokens as suggested by \TODO{Kobus reference}.
+A unique sequence was used to mark word endings and pairs.
 The reference implementation of \TODO{reference sennrich bpe} was used.
-Other than the BPE and the reducing no data modification were applied.
 
-### Domain Prefixes
-In the next step I applied 3 domain tags (one for each domain) to the source sentences of the data sets.
-The labels started where surronded my a sequenze marker that is different from the BPE marker.
-I did this to ensure, that the label was clearly marked as a special token.
-The token were prefixed to all sentences from the domain corpora. This is in line with the experiement from \TODO{paper finden} and in contrast to \TODO{sennrich paper}.
+### Prefix Constraints
+I proceeded with the preprocessed data and applied the prefix constraints as described by \reference{kobus}
+For that I created one unique token per domain and prefixed all English sentences with the corresponding domain token.
+Since the format of the token differs from the format produced by the BPE algorithm, all prefix constraints can be considered unique.
+
+I had the following four corpora: Not modified data in DE-EN and CS-EN and Modified data in DE-EN and CS-EN.
+In the following I will refer to them as Clean-de-en, Clean-cs-en, Tagged-de-en and Tagged-cs-en.
 
 ## Model Selection and Optimization
 ### Model
-A RNN with LSTM and 1000 neurons and 2 hidden layers was trained on the data.
-The OpenNeuralMachineTranslation Framework from \TODO{opennmt reference} was used for the implementation of the training and the model.
-\TODO{Add all default params}
-Each model was trained for 18 Epochs.
+The four corpora were than used to train a recurrent neural network with LSTM and 1000 neurons and two hidden layers.
+Furthermore I used multiple values for the optimizer, the learning rate and the learning rate decay.
+For the optimizer I used stochastic gradient descent, adam and adadelta. I ran all of them with learning rates 1, 0.1, 0.001 and 0.0001 and started to decay the learning rate by 0.3 per epoch after 5 or 10 epochs and once per optimizer and learning rate without any decay.
+I used the \reference{openNMT} framework for the implementation of the model and the training procedure.
+  \TODO{Add all default params}
+I build a MQTT scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti.
+Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.
-This ensures, that the same amount of information is added to the text.
+All models were trained multiple times to ensure proper distribution of start vectors.
 
 ### Optimization
-I trained models with different optimizer (sgd, adam and adadelta) as well as multiple learning rates (0.001, 0.01, 0.1, 1.0).
-Additionally, a learning rate decay was used for some runs activated after 5 and 10 epochs with a decay rate of 0.5 and a reduction after each additional epoch.
-All configuration ran mutliple times to ensure satisfying variation on the training.
-The models were than scored with BLEU on the 1000 example sentences of the valdiation set and ranked accordingly.
-For the further comparison only the best models per data set where choosen.
+On all models 1000 sentences from the valdiation set where translated.
+The translations were stripped from the BPE and compared to the reference texts using BLEU, METEOR and ROUGE\_L.
+The scores where than used to find the best model.
+For the further comparison only, 
 
 ## Comparison and evaluation of the domain control mechanism
 ### evaluation of the domain control mechanism
-The best models from the hyper parameter optimization were then used to translate 4 texts with each 10,000 example sentences.
-For each domain one text was picked random from the orignal domain and one with equal parts from all 3 domains.
-Each of the 4 texts was than compared to the reference translation and scored using BLEU.
+The translations from the best models for all four corpora were than split into the three domains.
+The three metrics were calculated on the domain texts and the combined text.
 
-The difference of the models within one langauge pair is compared to the difference in the other language pair.
+For the evaluation I calculated the differences between the training with and without prefix constraints for both language paris and all four texts.

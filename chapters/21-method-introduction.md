@@ -1,9 +1,6 @@
 # Method
-In the following section I introduce the and present the corpus and model selection.
-The goal is to train NMTs on different langauges and compare how they benefit from side constraint.
+In the following section I introduce and present the methods used to evaluate the performance impact of the domain control michanism prefix constraints in neural machine translation across different language pairs.
+I will first introduce the used data sets and describe my trainings setup for the neural machine translation.
 
-The domain control meachnism here is a direct reproduction of the papter from \TODO{Reference Paper with domain prefixes}.
-Therefore I used the setup desriped in the paper.
-For the details that where different or not descriped I looked for simliar environments in related work.
-
-
+The domain control mechanism here was introduced by \reference{kobus}.
+I used a similar setup but because my thesis had a different foucs I changed some aspect.
