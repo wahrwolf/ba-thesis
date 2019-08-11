@@ -19,14 +19,17 @@ From the ranking \TODO{include table} the best model were choosen for each corpu
 
 ## Scoring and Comparison
 The figure \TODO{side constraint comparison} shows the performance of the best model for the domain test sets calculated with ROUGEL.
-As expected the related language pair had archived better scores overall domains.
+The score is calculated for each of the three domains and overall ('mixed' in the figure).
 
-\TODO{write something about the different domains}
+In the DE-EN pair, the scores between the training with prefix constraints and without varies only little.
+The finance domain (ECB) achieves a score of ca 35%, the medical domain (EMEA) 77% and the law (Europarl) around 30%.
+The models achieved an overall score (mixed in the figure) of 47%.
 
-However depending on the scoring metric, there were huge differences in the actual performance change between the pairs.
-The models that were trained with prefix constraints archieved a higher trainings and validation accuracy, however only in the CZ-EN pair.
-In the DE-EN pair was not noticeable difference in the trainings statistic.
+In law domain (Europarl) of the pair CS-EN, the training with prefix constraints achieved noticeable higher score (37% vs 38.5%)
+The other domains show minor improvements.
+The finance domain (ECB) achieves a score of ca 30% and the medical domain (EMEA) 44%.
+The models achieved an overall score (mixed in the figure) of 41%.
 
-For more content focused scores like BLEU or ROUGE \TODO{add table with socres} the prefix constraints impacted the score slightly negative.
+In the figure \reference{language_comparison}, the score change between the training with and without prefix constraints is shown and caclculated for two different scores.
 
-While the difference is pretty small for related languages, it is notable different for the distant language pair.
+The upper graph shows 
