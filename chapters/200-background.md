@@ -1,4 +1,4 @@
-In times of progressing globalization the need of fast and relieabe translation increases. Since human translations require skill and time to learn as well as to make, they are often time consuming and expensive. Thus lately machine translations are on the rise.
+In times of progressing globalization the need of fast and relieabe translation increases. Since human translations require skill and time not only to learn, but as well as to make, they are often time consuming and expensive. Thus lately machine translations are on the rise.
 The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN), since they produce the most promising results once they have been trained accordingly __Refence__. __prüf mal ob der Satz sinn macht__
 
 ## Neural Machine Translation
@@ -44,17 +44,24 @@ This often disting set of rules, such as tone, vocabulary, or any other substant
 In Neural Machine Translation, multiple mechanisms are known and used to translate across multiple domains, for example prefix or side constrains.
 
 ### Prefix/Side Constraints
-Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network.
+Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network, to identify the domain of the text, which __helps the model to utilize similarities between domains better. - hier erklären wofür die genutzt werden - also wie das die modelle verbessert__
 This can be direct modifications in the text, like the decoration of certain essential words or more general tags that are added in front of a sentence, word, or even corpus.
 The concept of side constraint was introduced by \cite{Sennrich:16} and adapted for domain control by \cite{kobus:16}.
 
 ### Languages
 Another challenge in NMT is language adaption and control.
-\cite{} has shown that certain languages can be translated without ever training on the actual trainig data.
-The latest research includes even a showcase where NMT was able to translate an extinct language \cite{luo:19}.
-However, multi language models try to understand and produce the same content in different notations.
-While prefix constrained have been shown to help on that topic too, I evaluated them only on domain control. __diesen SAtz weglassen oder ändern__
+\cite{} has shown that certain languages can be translated without ever training on the actual trainig data and \cite{luo:19} impressivley demonstratet that a NMT was able to translate an extinct language.
+__hier wäre jetzt ein hervorragender Zeitpunkt um nochmal auf die Verwandten Sprachen einzugehen und zu begründen wieso man meinen könnte sie wären leichter zusammen zu übersetzen. ZB so?:__
+However, it is unknonw to date which relationship these languages 
 
-__hier wäre jetzt ein hervorragender Zeitpunkt um nochmal auf die Verwandten Sprachen einzugehen und zu begründen wieso man meinen könnte sie wären leichter zusammen zu übersetzen__
+Since languages are grouped by certain language families and language branches, it can be suspected that similar languages may benefit from similar models.  
+A language family is a group of languages that descend from a common ancestor sucha as the indo-european languages or the “sino-tibetian languages” __check name of family__ . Typical examples for languiages branches is the Germanic branch containing languages such as German, English, dutch and Flemish in contrast to the romance language branch with languages such as Latin, Italian, French and Spanish or the slavonic language branch such as  __insert examples___ __Reference__. Languages within the same branch are closer related than outside of the branch and share share some similarities in terms of vocabulary or certain structural similarities. 
+
+__please check this!!!
+It was shown by _Reference_ that prefix constrains are beneficial in 
+Thus the question arises if the use of prefix constrains mechanisms is of benefit in unrelated languages. 
+___
+
+
 
 
