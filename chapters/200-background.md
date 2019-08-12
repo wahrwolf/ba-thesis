@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 In times of progressing globalization the need of fast and relieabe translation increases. Since human translations require skill and time not only to learn, but as well as to make, they are often time consuming and expensive. Thus lately machine translations are on the rise.
 The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN), since they produce the most promising results once they have been trained accordingly __Refence__. __prüf mal ob der Satz sinn macht__
 
@@ -7,36 +7,6 @@ Neural machine translation (NMT) describes a branch of machine translations wher
 These are trained on input texts and their corresponding translations and allows the network to translate similar texts.
 NMTs are commonly used; for example, in Google Translate \cite{} and can produce excellent results on short passages.
 With enough training data, they can even translate articles or more elaborate texts \cite{Wu:Schuster:16}.
-=======
-# Background
-In this thesis, I compare the impact of a domain control mechanism in neural machine translation.
-The following section introduces the research field and explains some common definitions.
-
-## Translation
-Neural Machine Translation (NMT) as introduced by \cite{bahdanau:14} is a subset of machine translation.
-To act in the global market, localization is needed in all modern industries.
-The translations need to be delivered fast and cheap.
-Since human translation is quite slow and expensive, machine translation is used everywhere.
-
-### Languages that are related
-Languages are grouped by individual language families, depending on their history.
-Most languages share some vocabulary or certain structural similarities.
-
-### Content Domains
-Each industry has its lingo.
-Those might be specialized vocabularies like technical terms and standard shared definitions.
-However, in some areas, a certain structure and tone are also very distinct.
-A set of rules, such as tone, vocabulary, or any other substantial similarity define a domain.
-
-### Corpora
-Text collections from a common source are often referred to as one corpus.
-A corpus may share the same domain or is related to a particular event.
-The corpus is aligned if it is available in multiple languages or locales.
-
-In machine translations, aligned corpora are often used to evaluate the performance of a model.
-For that, the machine translation system is used to translate the corpus from one language into another available language.
-The generated text is then compared to the reference translation from the corpus.
->>>>>>> something chagned here
 
 In NMT text collections from the same source are referred to as one corpus.
 A corpus may share the same context (domain) or is related to a particular event.
