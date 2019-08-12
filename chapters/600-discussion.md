@@ -1,24 +1,24 @@
 # Discussion
-In the following section, I review my results and compare them to the current state of the art, as well as my prediction and research question.
+In the following section, I review my results and compare them to the current state of the art, as well as my to prediction and research my question.
 
 ## Data Selection
-The distribution in the number of words and the words length, show that the domains had some structural differences.
-The EMEA corpus in general shorter sentences with longer words.
-However while the median word and sentence length differs a little, the ECB and Europarl corpus seem to be similar structured, especially compared to the EMEA corpus.
-Since both ECB and Europarl consists of transcripts of sittings while EMEA consists mostly of patience information, the similarities seem reasonable.
+The distributions of the number of words and the word's length, show that the domains had some structural differences.
+The EMEA had corpus in general shorter sentences with longer words.
+However, while the median word and sentence length differ a little, the ECB and Europarl corpus seemed to be similar structured, especially compared to the EMEA corpus.
+Since both ECB and Europarl are transcripts of sittings while EMEA consists mostly of patience information, the similarities seem to be reasonable.
 
 ## Data Preparation
 During the data preparation step, I reduced the data sets by a large amount.
-I sliced the corpus into smaller logical units, by analyzing the text manually, since the no index was available on my data.
-I choose the number of words and word length as two simple metrics to evaluate the new distribution.
-As seen in \figure{corpus_stats}, the characteristics are not perfectly aligned with the source corpora but are unique enough, so that no reduced sets are too alike.
-In the EMEA corpus, the word length distribution differs visibly.
-Since this corpus contains many brand names, I assumed that the variation in splits is always quite high.
+I separated the corpus into smaller logical units by analyzing the text manually, since no index was available for my data.
+I choose the number of words and word length as two simple metrics to evaluate the original and reduced corpora.
+As seen in \figure{corpus_stats}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
+In the EMEA corpus, the word length distribution differs visibly from the original corpus.
+Since this corpus contains many brand names, I assumed that the variation in the small logical units was rather high.
 
-## Training and Optimzation
+## Training and Optimization
 ### Training
-The overall performance of the best models calcualted with BLEU indicates a succesful training.
-According to \ref{google bleu} the archived score of 20% points in BLEU can be interpreted roughly as a understandable but bad translation.
+The overall performance of the best models according to BLEU indicates a successful training.
+According to \ref{google bleu} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
 The top 5 models from each corpus reached that mark after 10,000 trainings steps, which translates to 5 epochs.
 
 The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainigs curves as described by \ref{https://arxiv.org/pdf/1511.03677.pdf}.
@@ -26,7 +26,7 @@ The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainig
 The model plotted in \ref{train-good_train} achieved reasonable results. The validation accuracy indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
 
 ## Evaluation
-### metrics interpreation
+### Metrics Interpretation
 I used three different metrics to measure the translations quality of the trained neural networks calculated against a human translation.
 
 #### BLEU
