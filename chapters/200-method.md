@@ -27,6 +27,15 @@ For both pairs, I used English as the source language.
 All corpora where available in those pairs.
 
 ## Data Preparation
+The chosen corpora were combined into one new corpus with the same amount of examples from each domain corpus.
+Basic data processing and the the domain control mechanism were than applied on it.
+
+### Data Slicing
+Since no document separation was available, I analyzed the corpora manually and split all corpora in smaller documents of logical units.
+Those units were than combined into a training set with roughly 70,000 example sentences and a validation set of 15,000 sentences.
+This new corpora were aligned in German-English and Czech-English.
+I calculated the distribution of word and sentence length for the original corpora, the validation and the training set.
+
 ### BPE
 I used Byte Pair Encoding to equalize the number of tokens per text.
 For that I run the implementation of \TODO{sennrich bpe} and reduced the text into 32000 \TODO{double check} tokens as suggested by \TODO{Kobus reference}.
