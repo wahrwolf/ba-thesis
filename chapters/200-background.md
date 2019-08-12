@@ -1,30 +1,36 @@
+# On the current State of Neural Machine Translation
+In times of progressing globalization the need of fast and reliable translation increases.
+Since human translations require skill and time not only to learn, but as well as to make, they are often time consuming and expensive.
+Thus lately machine translations are on the rise according to \cite{castil:17}.
+The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN), since they produce the most promising results once they have been trained accordingly \shortcite{Wu:Schuster:16}
 
-In times of progressing globalization the need of fast and relieabe translation increases. Since human translations require skill and time not only to learn, but as well as to make, they are often time consuming and expensive. Thus lately machine translations are on the rise.
-The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN), since they produce the most promising results once they have been trained accordingly __Refence__. __prüf mal ob der Satz sinn macht__
+### Neural Networks (NN)
+The term "Neural Networks" describes a class of machine learning algorithms, that are general function approximations.
+These algorithms (or networks) will learn a specific mapping between an input and an output by calculating the prediction error and apply a corresponding change to the matrix (knwon as backpropagation) \cite{hecht:92}. 
+The algorithm that is used to apply a change to reduce the error is called the optimizer.
+The \cite{bottou:10} proposed to use the stochastic gradient descent to calculate and apply that change.
+\cite{zeiler:12} presented ADADELTA as an alternative to the stochastic gradient descent.
+The stochastic optimization method adam was introduced by \cite{kingma:14} to work on networks with large data due to its little memory requirements.
+All three methods are represented in current research.
+The amount of reduction that is applied to reduce the error is called the learning rate, which is set between 0 and 1 and describes how much the network should be changed in each step.
+A learning rate of 1 means, to take in the full error, whereas a rate of 0 means no fix the error at all \cite{bottou:10}
+
+###  Recurrent Neural Networks (RNN)
+So-called Recurrent Neural Networks (RNN) are a subclass of NN, which use an internal state to allow them to access their previous output in the next iteration \shortcite{zaremba:14}. Thus RNNs are able to parse a sequence of inputs and produce output sequences, e.g. speech recognition \shortcite{mikolov:10} or image transcription \shortcite{vinyals:15}.
+
+### Attention
+Plain RNNs have only limited memory to store their past output. This makes it hard to work with large or complex texts \cite{bahdanau:14}.
+In comparison to "simple" NN, the attention-based networks address this issue by providing the NN with access to the input on top of the last output and implement a filter matrix to "blend in" certain features \shortcite{vaswani:17}..
 
 ## Neural Machine Translation
-Neural machine translation (NMT) describes a branch of machine translations where NN is used to translate text.
+Neural machine translation (NMT) describes a branch of machine translations where RNN are used to translate text \shortcite{bahdanau:14}.
 These are trained on input texts and their corresponding translations and allows the network to translate similar texts.
-NMTs are commonly used; for example, in Google Translate \cite{} and can produce excellent results on short passages.
+NMTs are commonly used; for example, in Google Translate and can produce excellent results on short passages.
 With enough training data, they can even translate articles or more elaborate texts \cite{Wu:Schuster:16}.
 
 In NMT text collections from the same source are referred to as one corpus.
 A corpus may share the same context (domain) or is related to a particular event.
 Especially useful for NMT are corpora, which are available in multiple languages (aligned corpora), because they can be used to evaluate the performance of a model __Reference__,  by translating the corpus from one language into another language and then comparing the generated translation with the available reference translation, to check the translation quality.
-
-### Neural Networks (NN) and Recurrent Neural Networks (RNN)
-The term "Neural Networks" describes a class of machine learning algorithms, that are general function approximations.
-These algorithms (or networks) will learn a specific mapping between an input and an output by calculating the prediction error and apply a corresponding change to the matrix (knwon as backpropagation) \cite{}. 
-The algorithm that is used to apply a change to reduce the error is called the optimizer.
-The prevalent algorithms are stochastic gradient descent \cite{}, adam\cite{}, and adadelta \cite{}. __evlt noch ein paar Worte dau was das beides ist, bzw kann__
-The amount of reduction that is applied to reduce the error is called the learning rate, which is set between 0 and 1 and describes how much the network should be changed in each step.
-A learning rate of 1 means, to take in the full error, whereas a rate of 0 means no fix the error at all __Reference__.
-
-So-called Recurrent Neural Networks (RNN) are a subclass of NN, which use an internal state to allow them to access their previous output in the next iteration. Thus RNNs are able to parse a sequence of inputs and produce output sequences, e.g., text.
-
-### Attention
-Plain RNNs have only limited memory to store their past output. This makes it hard to work with large or complex texts \cite{bahdanau:14}.
-In comparison to "simple" NN, the attention-based networks address this issue by providing the NN with access to the input on top of the last output and implement a filter matrix to "blend in" certain features __Reference__. 
 
 
 ### Byte-Pair-Encoding (BPE)
