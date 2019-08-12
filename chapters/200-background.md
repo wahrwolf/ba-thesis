@@ -41,8 +41,7 @@ Another challenge in translations is context, because each industry has its own 
 Contexts might be specialized through vocabularies like technical terms and standard shared definitions or even textual structures and tone.
 This often disting set of rules, such as tone, vocabulary, or any other substantial similarity are define as a domain __Reference__.
 
-### Domain Control
-In Neural Machine Translation, multiple mechanisms are known and used to translate across multiple domains.
+In Neural Machine Translation, multiple mechanisms are known and used to translate across multiple domains, for example prefix or side constrains.
 
 ### Prefix/Side Constraints
 Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network.
