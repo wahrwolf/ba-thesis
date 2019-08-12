@@ -1,78 +1,71 @@
 # Results
 In the following section I present the results of the previous described procedures.
-First I will show some statistic on my generated corpus and compare its characteristics to the source material.
-The next part contains some visualizations of the model training and some detailed metrics on examples..
-I will then rank the models and compare the performance change for
-Lastly I will compare the impact of side constraint between two German-English and Czech-English.
+First I will show some statistics of my generated corpus and compare its characteristics to the source material.
+The next part comprizes exemplary visualizations of the model training and detailed metrics of these examples.
+I will then rank the models and compare the impact of prefix constraints between the two language pairs German-English and Czech-English.
 
 ## Data Selection and Preparation
-To ensure, that the reduction of the data set did not change the defining characteristics I compared the number of words and sentence length on the reduced and original data set.
+To ensure, that the reduction of the data set did not change the defining characteristics of the respective corpora I compared the number of words and sentence length on the reduced and original data set.
 The distributions are shown in \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
 
 The figures \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word} both show a 3x4 matrix with 3 boxplots each.
 The first two plots per row show the distribution over the language pair DE-EN, and the 3th and 4th over CS-EN.
-Each row shows the distribution over one domain.
+Each row shows the distribution of one domain.
 
-All plots labeled with Q show the distribution over the original corpus.
-Plots labeled with T show the distribution over the trainings data and V marks the validation data.
-
+All plots labeled with Q show the distribution of the original corpus.
+Plots labeled with T show the distribution of the training data and V marks the validation data.
 Outlier are not shown in the plots, instead the whiskers are extended.
 
-### Number of words
-The interquartile range box for all corpora lies within 0 and 50 words.
-For the EMEA corpus row the range box lies withing 0 and 25
-The median in this domain is between 5 and 10 words.
-For all other domains it stays between 20 and 25.
+None of the shows major difference of the reduces corpus to the original corpus. Therefore the reduces Corpora were accepted for the further steps. 
 
-In the ECB row, the whiskers extend up to 70 words in DE and EN columns.
-The EMEA row had the whiskers around 40 and Europarl around 60.
-For all three rows, the CS column showed whiskers 10 points below.
+### Number of words
+In most domains, sentences have between 0 and 50 (interquartile range). In EMEA the sentence length was mostly between 0 and 25, and the median bewtween 5 and 10 words. In all other damains the median was between 20 and 25 words per sentence. 
+
+In ECB the maximum number of words was 70 for German and English. EMEA was found to contain sentences up to 40 words and Europal up to 60, but the Czech sentences tend to be about 10 words shorter than English and German. __(bitte prüfen, kann das aus den Grafiken nicht gut abschätzen)__
+__However, no distinct difference between the original and reduced data sets were found.__ __chekcne ob das stimmt - das ist ja der interessante punkt, weshalb du das hier testest!__
 
 ### Word Length
-The interquartile range box for all corpora lies within 0 and 10.
-The median in this domain is around is between 5 and 10 characters.
-For all other domains it stays between 20 and 25.
+Words mostly had a length between 0 and 10 characters __(stimmt das?)__. The median of __(WELCEH DOMAIN)__ ranges from 5 to 10 and from 20 to 25 in the other domains. __(evt hier auch nach Sprache aufteilen - nur wenn sie unterschiedlich sind)__
 
-The median for all plots stays within 5 and 7 characters per word, but are higher in the CS column.
+Median word lengths in all domains were between __X and X__ characters in Englsich, but __X to X__ characters in Czech in all domains. 
+Maximum word length in the german text was 20. The maximum word length for Englisch words was found to be 15, Czech leis in between.
 
-The whiskers for the DE column reach up to 20.
-The EN column has the lowest whiskers around 15 characters per word.
-The CS columns ranks between those two.
+__However, no distinct difference between the original and reduced data sets were found.__ __chekcne ob das stimmt - das ist ja der interessante punkt, weshalb du das hier testest!__
 
 ## Training and Optimization
-During the Training of the models the trainings accuracy and the validation accuracy was recorded.
-For a selection of models the BLEU score was calculated afterwards to visualize the learning process.
+During the training of the models the training accuracy and the validation accuracy was recorded.
+For a selection of models the BLEU score was calculated to visualize the learning process.
 All models were used to translate the validation data sets after 6, 12, and 18 epochs.
 
 ### Hyper Parameter
-The table in \ref{hyperparam-ranking-table} shows the ranking for all trainings configurations for the corpus without prefix constraints in the DE-EN language pair.
-It shows the optimizing method, the learning rate, the start of the decay and the meteor score.
-The figures \ref{optim_clean-de-en} \ref{optim_tagged-de-en} \ref{optim_clean-cs-en} \ref{optim_tagged-cs-en} show the top 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
+The table in \ref{hyperparam-ranking-table} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
+Models are chracterized by optimization method, learning rate, start of the decay and METEOR score.
+The figures \ref{optim_clean-de-en} \ref{optim_tagged-de-en} \ref{optim_clean-cs-en} \ref{optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
 
 #### Table with Validation Accuracy
 
 ### Training
-The figures \ref{train-bad_train} and \ref{train-good_train} show to plots from the validation accuracy and the trainings accuracy over the trainings steps.
-In the \ref{train-bad_train} two curves with a logaritmic shape are shown. The trainings accuracy meets the 20 % mark after 10,000 trainings steps and growth to 30% in the next 25,000 training steps.
-The validation accuracy hits the 15% mark after 5,000 training steps and growth over the next 30,000 trainings steps to a value of 20 %.
+The figures \ref{train-bad_train} and \ref{train-good_train} shows the validation accuracy and the training accuracy for each training step.
+Both metrics increase in a logaritmic smanner. The trainings accuracy meets the 20 % mark after 10,000 training steps and growth to 30% in the next 25,000 training steps.
+The validation accuracy hits the 15% mark after 5,000 training steps and growths over the next 30,000 trainings steps to a value of 20 %.
 
-The graph in \ref{train-good_train} shows the same two metrics. The curves are logarithmic shaped.
-The trainings accuracy reads around 60 % mark after 10,000 trainings steps and gain another 20% mark over the remaining 25,000 training steps.
+The graph in \ref{train-good_train} shows the same two metrics, which increase again ina logarithmic manner.
+The training accuracy reaches the 60 % mark after 10,000 trainings steps and gains another 20 % points over the remaining 25,000 training steps.
 After 15,000 steps, the curve begins to scatter in a growing sinus shape.
 
-The validation accuracy reaches the 30 % mark after 5,000 trainings steps and gains another 10% points over the next 10,000 training steps.
+The validation accuracy reaches the 30 % mark after 5,000 training steps and gains another 10 % points over the next 10,000 training steps.
 Between step 15,000 and 35,000 the graph is constant around the 40 % mark. 
 
 The figure \ref{optim-top_comparison} shows the BLEU score and the validation accurccay in two graphs.
 For each metric 5 different models are plotted and the highest score is highlighted.
 In the first part of the graph, the plot scatters up to 10% points, but stabilizes after  10,000 steps.
 The validation accuracy curve is logarithmic shaped and reaches the 30% mark after 5,000 trainings steps.
-It continues to growth, until it reaches the 40% mark after 10,000 steps.
+It continues to growth, until it reaches a plateau at the 40% mark after 10,000 steps.
 
-The second graph shows the BLEU score over the same training.
-The first non zero point appears after ca 3,000 trainings steps. The plots scatter until for another 7,000 steps between the 10% and 20% mark with a linear growing tendency.
+The second graph shows the BLEU score for the same training.
+The first non zero point is found after ca 3,000 trainings steps. The plots scatter for another 7,000 steps between the 10 % and 20 % mark with a linear growing tendency.
 Between the 10,000th and the 20,000th trainings step the points fluctuate between the 15% and 20% mark.
-During the last 15,000 steps the points are stable at the 20% mark.
+During the last 15,000 steps curve reaches a plateau at the 20 % mark.
 
 ## Comparison and Evaluation
 
