@@ -1,11 +1,11 @@
 # Method
-In the following section, I introduce and present the methods used to evaluate the performance impact of the domain control mechanism "prefix constraint" in neural machine translation across different language pairs.
+In the following section, I introduce and present the methods used to evaluate the performance impact of the domain control mechanism "prefix constraint" in NMT across different language pairs.
 I introduce the used data sets and describe my training setup for the neural networks.
 
 The used domain control mechanism was adapted from \cite{kobus:16}, but the testing setup was changed to investigate the impact of prefix constraints in related and unrelated languages.
 
 ## Data Selection and Preparation
-To compare the performance impact of the domain control mechanism, I build a multi-domain corpus with two language pairs of different relatedness.
+To compare the performance impact of the domain control mechanism, I built a multi-domain corpus with two language pairs of different relatedness.
 
 ### Language Pair Selection
 The selected language pairs were Czech-English as a distant language pair and German-English as a related language pair.
@@ -22,6 +22,7 @@ For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents
 All of the used corpora are accessible through the OPUS project \cite{}.
 
 ## Data Preparation
+__hier fehlt glaube ich noch wie du die corpora pro einzeldomain reduziert und zu einem neuen usammengebaut hast!__
 The newly generated corpus was then prepared for neural network training. During the preprocessing, the words were split into tokens of high occurrence using BPE. Afterward, the domain control mechanism was applied to the data set.
 
 ### Data Slicing
@@ -43,23 +44,23 @@ The resulting corpora were: Not modified data in Czech-English (CZ-EN) and Germa
 In the following, I will refer to them as Clean-de-en, Clean-cs-en, Tagged-de-en, and Tagged-cs-en.
 
 ## Training and Optimization
-To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and with one hyperparameter optimization round. The used parameter was adapted from multiple sources \ref{}
+To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and performed one hyperparameter optimization round. The used parameter was adapted from multiple sources \ref{} __Reference__ and will be explaines subsequently.
 
 ### Model
 I used an Encode-Decoder Recurrent Neuronal Network with "Long Short-Term Memory" \shortcite{zaremba:14} gates, with a dropout probability of 0.3, two layers, and 1000 hidden states.
-I used 500 word embeddings \cite{} on the source and target side.
+On the source and target side I used 500 word embeddings \cite{}.
 For the attention \cite{} behavior I used the "general" \cite{} attention type and the "softmax" \cite{} function for the attention and the generator.
 
 ### Hyper Parameter
 For the optimizer, I run multiple configurations.
 In all runs, a mini-batch size of 32 sentences for the training and 16 sentences for the validation was used.
-For the optimizer, I used stochastic gradient descent \shortcite{}, "adam \shortcite{}", and "adadelta \shortcite{}".
+For the optimizer, I used stochastic gradient descents \shortcite{}, "adam \shortcite{}", and "adadelta \shortcite{}".
 I ran all of them with learning rates 1, 0.1 and 0.001 and started to decay the learning rate by 0.3 per epoch after 5 or 10 epochs and once per optimizer and learning rate without any decay.
-The gradient was set to be renormalized if the norm over the gradient vector exceeds 5.
+The gradient was set to be renormalized if the norm over the gradient vector exceeded 5.
 
 ### Training
 I used the \cite{opennmt} framework for the implementation of the model and the training procedure.
-I build an MQTT \shortcite{} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
+I built an MQTT \shortcite{} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
 Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.
 All models were trained multiple times to ensure the proper distribution of start vectors.
@@ -70,14 +71,14 @@ However, the validation score was not used for early stopping.
 To compare the score impact and evaluate a possible connection with the relatedness of the languages, I picked the best models from the training and measured its performance with three metrics (BLEU\shortcite{}, METEOR\shortcite{}, ROUGE-L\shortcite{}).
 
 ### Metrics
-I used three different metrics to measure the translation quality of the trained neural networks.
+I used three different metrics to measure the translation quality of the trained neural networks (BLEU, METEOR, and Rouge-L).
 An overall score was calculated by adding the rank of all scores.
-All data preprocessing steps were removed before calculating the metrics.
-Since the corpus is aligned, all scores are calculated against a human translation.
+All data preprocessing steps were removed before calculating the scores.
+Since the corpus was aligned, all scores were calculated in comparison to a conventional translation.
 
 ### Model Selection
 For each language pair, the best model was chosen according to overall score with and without prefix constraint resulting in four models: Clean-de-en, Clean-cs-en, Tagged-de-en, and Tagged-cs-en
-The validation data sets were translated using these models and metrics (BLEU\shortcite{}, METEOR\shortcite{}, ROUGE-L\shortcite{}) were calculated per each resulting translation.
+The validation data sets were translated using these models and metrics (BLEU\shortcite{}, METEOR\shortcite{}, ROUGE-L\shortcite{}) were calculated for each resulting translation.
 
 ### Prefix Constraint
 Per domain, a data set of 1,200 randomly picked example sentences was prepared in the same way as the training data, except that the BPE merges were not relearned but reused to generate the same tokens.
