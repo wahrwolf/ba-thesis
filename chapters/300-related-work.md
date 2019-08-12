@@ -5,11 +5,6 @@ The underlying issue is complex and a variety of approaches address different as
 ## Corpus and Language Selection
 The domain control research focusses partly on the ranking of common corpora, like the collection of Wikipedia articles.
 
-### Corpus
-In this thesis I will focus on the performance impact of one domain control mechanism.
-I do not try to achieve a certain performance score.
-To evaluate the impact, I had to create a new corpus with certain characteristics.
-
 ### Languages
 Another related research field is language adaption and control.
 \cite{} has shown that certain languages can be translated without training on the actual trainigs data.
