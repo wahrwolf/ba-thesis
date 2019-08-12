@@ -31,38 +31,42 @@ I used three different metrics to measure the translations quality of the traine
 
 #### BLEU
 The BLEU score is computed by measuring the difference between word groups and is calculated over the whole text.
-The metric was developed to measure translation quality.
+The metric was developed to measure translation quality __Reference__.
 In this thesis the BLEU score is used to measure the overall translation precision.
+__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
 
 #### METEOR
 The METEOR metric was developed to improve the correlation of human judgment with the translation score.
-It is calculated on sentence levels.
+It is calculated on sentence levels __Reference__.
 I used this score to represent the comprehensibility of the translation.
+__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
 
 #### ROUGE-L
 The ROGUE-L score is calculated by measuring the similarity of longer subsequences.
-This score was developed to compare summaries.
+This score was developed to compare summaries __Reference__.
 Since the score benefits from structural and long word matches I used this score to measure the domain specialization.
+__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
 
 #### Overall
-The overall score consists of the addition of the ranks minus the total number of models times the number of metrics for the model compared to all other models trained in the same hyper optimization round.
+The overall score summarizes all three scores and is calculated throu addition of the ranks minus the total number of models times the number of metrics for the model __and is compared to all other models trained in the same hyper optimization round.__ __bitte den letzen Teil prüfen, den versteh ich nicht__
+__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
 
 ### Model Selection
-During the model selection, the ranking using the overall score was similar to the individual ranking by the scores directly.
-This tendency is already known and described by other.
+During the model selection, the ranking using the overall score was similar to the ranking by individual scores.
+This tendency is already known and described by other authors __Reference__. __vllt kurz erwähnen wieso sie meinen dass die zusammenhängen__
 
 ### Prefix constraints
-In the \ref{Results} I described how the models performed absolute according to METEOR in the different domains and how the performance changed in relation to the absolute score.
+In the \ref{Results} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
 All selected models performed best on the ECB and benefits most from prefix constraints in the Europarl corpus.
-The performance impact in the mixed test set is similar to the described impact by \cite{kobus:16}
+The performance impact in the mixed test set was similar to the described impact by \cite{kobus:16}
 
-The overall performance showed a slight improvement when prefix constraints were provided, but decreased on most of the domain only data.
+The overall performance showed a slight improvement when prefix constraints were provided, but decreased in most corpora containing only one domain.
 
-BLEU and METEOR both show the general translation precision and comprehensibility of the mixed data set increased.
-The prefix constraint aim to improve mixed data sets, by highlighting one key meta information.
+BLEU and METEOR both show that the general translation precision and comprehensibility of the mixed data set increased.
+The prefix constraint aimed to improve mixed data sets, by highlighting one key meta information.
 Therefore, if prefix constraints are available, the network can focus more on the similarities between domains instead of learning specific features from it.
 
-The difference between improvement in the BLEU(indicating precision) and METEOR score, indicates that the prefix constraints helped more with the structural features than the content features.
+The difference between improvement in the BLEU (indicating precision) and METEOR (indicating comprehensibility) score, indicates that the prefix constraints helped more with the structural features than the content features of the copora.
 
 The ROUGE-L indicates that the addition of prefix constraints decrease the domain specialization in all domains, but its effects on the mixed dataset are rather small.
 Since the ECB and Europarl corpus are similar, the generalization does not impact the performance as much as on the EMEA test set. 
@@ -70,51 +74,48 @@ Since the ECB and Europarl corpus are similar, the generalization does not impac
 Overall, the generalizability seems to improve at the expense of specialized knowledge.
 The translation precision improves more than the comprehensibility.
 
-### language comparison
+### Language Comparison
 The comparison of the score change between the language pairs in figure \ref{} show two major differences.
 In the German-English pair, the performance of in the Europarl test set improved, while the performance in Czech-English decreased.
 This indicates that addition of prefix constraints actually helped the model in German-English to differentiate one more domain and build up special knowledge.
 
-The performance loss in the precision and comprehensibility on the domain sets in the Czech-English pair are higher and the improvement in the mixed data set smaller.
+The performance loss in the precision (BLEU score) and comprehensibility (METEOR score) on the domain sets in the Czech-English pair are higher and the improvement in the mixed data set smaller.
 
-\ref{} used multiple input languages to translate mixed domain content
-They showed that domain boundaries are differently strict in different language.
-
-The results in figure \ref{} indicate that the domain differences in the selected data are more obvious in Czech-English than in German-English.
+\ref{} used multiple input languages to translate mixed domain content, and showed that domain boundaries are differently strict in different language. __Thus it can be assumed, that the selected languages differ in their domain boundaries. __ __check if this is BS__
+This can be also seen in figure \ref{}, which indicates that the domain differences in the selected data are more obvious in Czech-English than in German-English.
 
 Overall the comparison shows that prefix constraints improve the translation comprehensibility and precision whenever the domain membership is not expressed clearly through structural differences.
-Since the structural key features can differ distinctly in languages the prefix constraint impact is not always predictable.
-My results indicate that those domain feature appear more distinct in Czech-English and therefore in distant pairs than in English-German or related pairs.
-However, additional research is needed to prove this for the pairs and in general.
+Since the structural key features can differ distinctly in languages the impact of prefix constraints impact is not always predictable.
+My results indicate that those domain feature appear more distinct in Czech-English and therefore in distant language pairs than in related pairs.
+However, additional research is needed to prove this for other language pairs and in general.
 
 ## Limitations
-During my training I ran into a few issues, that might have an impact of my interpretation and the gathered results.
+During my training I ran into a few issues, that might have had an impact on my results and interpretation.
 
 ### The relatedness of English-Czech and English-German and the generalization for the distance between languages
 In my testing I used Czech and German as languages that origin from different language families.
-However they are still related and closer to English as Japanese or Chinese.
-The results need to be verified with more data from the pairs.
-The indication described in the \ref{langauge comparison} needs to be evaluated on more language pairs.
+However, they are still related and are closer to English as for example Japanese or Chinese.
+The results need to be verified with more data from these language pairs.
+Also only two language pairs were tested and the indication described in the \ref{langauge comparison} needs to be evaluated on more language pairs in the future.
 
 ### The domain Selection and the Corpus Metrics
-I used only three domains and compared very simple metrics on the corpora.
-My indication \ref{langauge comparison} and observation in \ref{prefix constraint} based upon the differences between the domains.
+I used only three domains and compared very simple metrics on the corpora, and my indication \ref{langauge comparison} and observation in \ref{prefix constraint} based upon these differences between the domains.
 To increase the confidence in my results I suggest evaluating the same metrics on more domains.
 More complex metrics could be used to review my data and prove the described relationship.
 
 ### Hyper Parameter Selection and Optimization
 I ran only one round of hyper parameter optimization and compared only a few parameters and values.
-My trainings curves show typical aspects of a succesfull training, but better configurations may exist.
+My training curves showed typical aspects of a succesfull training, but better configurations may exist.
 This can be examined by rerunning the optimization with more configurations.
 
 ### Better Performance of the distant Language Pair
 In my results the absolute score in all metrics was higher for Czech-English.
 This does not affect my comparison, since my discussion interpreted only the relative change on the scores.
-On top of that, as \ref{} explained, the scores does not represent the overall translation capabilities and are only comparable between the same language and the same corpus.
-In my training the Czech-English models ran for 10% more steps, since the corpora splits were slightly different than in the German-English corpora.
+On top of that, as \ref{} explained the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
+In my training the Czech-English models ran for 10 % more steps, since the corpora splits were slightly different than in the German-English corpora.
 However, as discussed in \ref{} the overall key metrics were similar and the models were trained on the same number of epochs.
 As mentioned in the limitations \ref{} the parameter selection may not have included the best model.
-I suggest to use an exact alignment for all three languages and the training with additional trainings configuration to prove this point beyond a doubt.
+I suggest to use an exact alignment for all three languages and the training with additional training configurations to further support this hypothesis. __welche genau? nocheinmal nennen__
 
 ## Perspective
 Based on my results it would be interesting to evaluate the following aspects
@@ -125,7 +126,7 @@ Additional languages for the training with English source texts, as well as new 
 
 ### Evaluation with full Corpora
 I ran my models on a reduced data set.
-The training without the reduction can improve the generalizability of my findings.
+The training without the reduction can improve the general ability of my findings.
 
 ### Training with additional Attention Types
 In the thesis I used only a very simple attention type for the models.
@@ -136,22 +137,22 @@ Based on my findings I suggest the following future projects:
 ### Reviewing of Domain Control Mechanism on different Language Pairs
 Most domain control and adaption mechanism are only tested for one or two language pairs.
 However my findings indicate that the language selection can have a huge impact of the performance of domain control mechanism.
-Therefore, I suggest to reevaluate the findings for domain control mechanism over additional language pairs.
-Especially \ref{japsen} rely on the work of \ref{kobus} but use largely unrelated languages.
+Therefore, I suggest to reevaluate the findings for domain control mechanism for additional language pairs.
+Especially since \ref{japsen} rely on the work of \ref{kobus} but use largely unrelated languages.
 
 ### Creation of a relatedness Score
 To measure the relatedness of language pairs and calculate a possible correlation with the performance on translation systems, I suggest the creation of a new and simple score.
 The FSI uses the necessary study time to rank the training difficulty of language pairs.
 I suggest the creation and evaluation of a score based on the median training time.
-This information can be easily collected for humans and tested for neural machine translation.
+This information can be easily collected for humans and tested for neural machine translation __and can then be used to decide whether prefix contrains should be used in a model or not. __ __please cehck if BS__
 
 ### Extend the OPUS Project
-The OPUS project host a variety of corpus data.
-However the data is only available in an unstructured format.
-I invite all researchers to submit their trainings data and preparation scripts.
-Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts.
+The OPUS project hosts a variety of corpus data.
+However, the data is only available in an unstructured format.
+I invite all researchers to submit their trainings data and preparation scripts, to generate a structured data bank.
+Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts,  __because reproducibility is key to further seperate effects of differences in corpus struture and differences in language.__ __please cehck if BS__
 
 # Conclusion
 In conclusion, the problem of domain control in neural machine translation is very challenging and not solved in any translation related area.
-As my thesis and the current research shows, the impact of domain control mechanism can not always be predicted and depends on a lot of different factors.
+The impact of domain control mechanism can not always be predicted and depends on multiple factors (e.g. model, domain, language, etc.).
 The domain and language selection should always be considered when choosing any domain adaption mechanism.
