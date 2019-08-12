@@ -24,6 +24,12 @@ All of the used corpora are accessible through the OPUS project \cite{}.
 ## Data Preparation
 The newly generated corpus was then prepared for neural network training. During the preprocessing, the words were split into tokens of high occurrence using BPE. Afterward, the domain control mechanism was applied to the data set.
 
+### Data Slicing
+Since no document separation was available, I analyzed the corpora manually and split all corpora in smaller documents of logical units.
+Those units were than combined into a training set with roughly 70,000 example sentences and a validation set of 15,000 sentences.
+This new corpora were aligned in German-English and Czech-English.
+I calculated the distribution of word and sentence length for the original corpora, the validation and the training set.
+
 ### BPE
 Byte Pair Encoding was used to reduce the number of tokens to 32,000 as suggested by \cite{kobus:16}, by running the implementation of \cite{Sennrich15}.
 The unique sequence (@@) was used to mark word endings and pairs.
