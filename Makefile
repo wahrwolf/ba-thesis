@@ -5,6 +5,7 @@ RUBBER_ARG=-d
 # main targets
 paper: thesis.pdf
 	mv $< paper.pdf
+	cp paper.pdf /srv/ftp/share/archive/ba-thesis.pdf
 	rubber $(RUBBER_ARG) --clean thesis
 	rm -f thesis.vrb
 
