@@ -93,24 +93,65 @@ During my training I ran into a few issues, that might have an impact of my inte
 ### The relatedness of English-Czech and English-German and the generalization for the distance between languages
 In my testing I used Czech and German as languages that origin from different language families.
 However they are still related and closer to English as Japanese or Chinese.
-My thesis is claim
+The results need to be verified with more data from the pairs.
+The indication described in the \ref{langauge comparison} needs to be evaluated on more language pairs.
 
+### The domain Selection and the Corpus Metrics
+I used only three domains and compared very simple metrics on the corpora.
+My indication \ref{langauge comparison} and observation in \ref{prefix constraint} based upon the differences between the domains.
+To increase the confidence in my results I suggest evaluating the same metrics on more domains.
+More complex metrics could be used to review my data and prove the described relationship.
 
-### bad domain selection
-### bad parameter selection
-### de-en worse than cs-en?
+### Hyper Parameter Selection and Optimization
+I ran only one round of hyper parameter optimization and compared only a few parameters and values.
+My trainings curves show typical aspects of a succesfull training, but better configuration may exists.
+This can be examined by rerunning the optimization with more configurations.
+
+### Better Performance of the distant Language Pair
+In my results the absolute score in all metrics was higher for Czech-English.
+This does not affect my comparison, since my discussion interpreted only the relative change on the scores.
+On top of that, as \ref{} explained, the scores does not represent the overall translation capabilities and are only comparable between the same language and the same corpus.
+In my training the Czech-English models ran for 10% more steps, since the corpora splits were slightly different than in the German-English corpora.
+However, as discussed in \ref{} the overall key metrics were similar and the models were trained on the same number of epochs.
+As mentioned in the limitations \ref{} the parameter selection may not included the best model.
+I suggest to use an exact alignment for all three languages and the training with additional trainings configuration to prove this point beyond a doubt.
 
 ## Followup
-### more domains and langauges
-### the whole data set
-### better model
+Based on my results it would be interesting to evaluate the following aspects
+### More Domain and Language Comparison
+The indication should be evaluated with more data.
+The evaluation with more and more diverse domains may reveal additional insights on the impact of prefix constraints.
+Additional languages for the training with English sources text, as well as new and different language pairs should be tested.
+
+### Evaluation with full Corpora
+I ran my models on a reduced data set.
+The training without the reduction can improve the generalizability of my findings.
+
+### Training with additional Attention Types
+In the thesis I used only a very simple attention type for the models.
+However since the prefix constraints add additional meta information, a more complex attention type might benefit emensly from this mechanism.
 
 ## Future work
-### test everything on different language pairs
-### evaluate fsi score
-### extend opus with preparation steps for certain tasks
+Based on my findings I suggests the following future projects:
+### Reviewing of Domain Control Mechanism on different Language Pairs
+Most domain control and adaption mechanism are only tested for one or two language pairs.
+However my findings indicate that the language selection can have a huge impact of the performance of domain control mechanism.
+Therefore, I suggest to reevaluate the findings for domain control mechanism over additional language pairs.
+Especially \ref{japsen} rely on the work of \ref{kobus} but use largely unrelated languages.
+
+### Creation of a relatedness Score
+To measure the relatedness of language pairs and calculate a possible correlation with the performance on translation systems, I suggest the creation of a new and simple score.
+The FSI uses the necessary study time to rank the training difficulty of language pairs.
+I suggest the creation and evaluation of a score based on the median trainings time.
+This information can be easily collected for humans and tested for neural machine translation.
+
+### Extend the OPUS Project
+The OPUS project host a variety of corpus data.
+However the data is only available unstructured.
+I invite all researchers to submit their trainings data and preparation scripts.
+Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts.
 
 # Conclusion
-- domain control is tricky
-- dont just copy and paste
-- gather metrics and pick the right domain control mechanism
+In conclusion, the problem of domain control in neural machine translation is very challenging and not solved in any translation related area.
+As my thesis and the current research shows, the impact of domain control mechanism can not always be predicted and depends on the a lot of different factors.
+The domain and language selection should always be considered when choosing any domain adaption mechanism.
