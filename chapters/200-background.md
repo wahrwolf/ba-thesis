@@ -35,7 +35,7 @@ The term "Neural Networks" describes a class of machine learning algorithm, that
 These algorithms (or networks) will learn a specific mapping between an input and an output.
 This learning process works by calculating the prediction error and apply a corresponding change to the matrix.
 This process is know as back propagation. The algorithm that is used to apply a change to reduce the error is called the optimizer.
-The most common known algorithms are stoachstic gradient descent, adam adadelta.
+The most common known algorithms are stochastic gradient descent, adam adadelta.
 The amount of reduction that is applied to reduce the error is called the learning rate.
 The learning rate is set between 0 and 1 and describes how much the network should be changed in each step.
 A learning rate of 1 means to take in the full error, where as a rate of 0 no fix at all is.
@@ -70,5 +70,5 @@ In the neural machine translation multiple mechanism are known and used to trans
 ### Prefix/Side Constraints
 Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network.
 This can be direct modifications in the text, like the decoration of certain important words or more general tags that are added in front of a sentence, word or even corpus.
-The concept of side constraint was introduced by \ref{sennrich} and adapted for domain control by \ref{korbus}
+The concept of side constraint was introduced by \cite{Sennrich:16} and adapted for domain control by \cite{kobus:16}
 

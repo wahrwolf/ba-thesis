@@ -11,17 +11,17 @@ Since both ECB and Europarl are transcripts of sittings while EMEA consists most
 During the data preparation step, I reduced the data sets by a large amount.
 I separated the corpus into smaller logical units by analyzing the text manually, since no index was available for my data.
 I choose the number of words and word length as two simple metrics to evaluate the original and reduced corpora.
-As seen in \figure{corpus_stats}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
+As seen in \ref{corpus_stats}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
 In the EMEA corpus, the word length distribution differs visibly from the original corpus.
 Since this corpus contains many brand names, I assumed that the variation in the small logical units was rather high.
 
 ## Training and Optimization
 ### Training
 The overall performance of the best models according to BLEU indicates a successful training.
-According to \ref{google bleu} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
+According to \cite{google bleu} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
 The top 5 models from each corpus reached that mark after 10,000 trainings steps, which translates to 5 epochs.
 
-The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainigs curves as described by \ref{https://arxiv.org/pdf/1511.03677.pdf}.
+The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainigs curves as described by \cite{lipton:15}
 
 The model plotted in \ref{train-good_train} achieved reasonable results. The validation accuracy indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
 
@@ -52,9 +52,9 @@ During the model selection, the ranking using the overall score was similar to t
 This tendency is already known and described by other.
 
 ### Prefix constraints
-In the \reference{result section} I described how the models performed absolute according to METEOR in the different domains and how the performance changed in relation to the absolute score.
+In the \cite{result section} I described how the models performed absolute according to METEOR in the different domains and how the performance changed in relation to the absolute score.
 All selected models performed best on the ECB and benefits most from prefix constraints in the Europarl corpus.
-The performance impact in the mixed test set is similar to the described impact by \ref{kobus}
+The performance impact in the mixed test set is similar to the described impact by \cite{kobus:16}
 
 The overall performance showed a slight improvement when prefix constraints were provided, but decreased on most of the domain only data.
 

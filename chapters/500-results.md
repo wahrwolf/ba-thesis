@@ -48,7 +48,7 @@ For a selection of models the BLEU score was calculated afterwards to visualize 
 All models were used to translate the validation data sets after 6, 12, and 18 epochs.
 
 ### Hyper Parameter
-The table in \ref{hyperparam-ranking-table} shows the ranking for all trainings configurations for the corpus without prefix constraints in the DE-EN language pair.
+The table in \cite{hyperparam-ranking-table} shows the ranking for all trainings configurations for the corpus without prefix constraints in the DE-EN language pair.
 It shows the optimizing method, the learning rate, the start of the decay and the meteor score.
 
 (https://tex.stackexchange.com/questions/214461/highlight-row-in-latex on how to highlith a row)
@@ -85,34 +85,37 @@ During the last 15,000 steps the points are stable at the 20% mark.
 ## Comparison and Evaluation
 
 ### Candidate Selection
-For the evaluation I picked the following four combinations, which are highlighted in \ref
+For the evaluation I picked the following four combinations, which are highlighted in \ref{}
 The configurations were:
 
 ### Prefix Constraints
-The figures \ref{1..4] show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
+The figures \cite{1..4] show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
 All figures show two graphs with four groups of two bar diagrams each.
 The top graph shows the absolute score for the language pair German-English and the bottom graph for Czech-English.
 The first bar in each group represents the performance without prefix constraints and the second bar with prefix constraints.
 
-#### BLEU (Fig \ref{})
+#### BLEU 
+(Fig \cite{})
 In both diagrams the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
 The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8% for Europarl and 18.5% for the mixed data set.
 In the Czech-English pair the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
-#### Rouge (Fig \ref{})
+#### Rouge 
+(Fig \cite{})
 The scores are similar for all domains except EMEA. They rank for German-English between 25% and 54%, and between 34% and 65% in Czech-English.
 The median score for ECB in German-English is 53%, for Czech-English 63.5%, and Europarl 25% for German-English and 33.5% for Czech-English.
 In the EMEA domain the German-English with prefix constrains scored 42.62% and without 45.25%.
 In Czech-English the model with prefix-constraints scored 41.07% and the model without 43.69%.
 The mixed data set  had a score of 38% in German-English and 45% in Czech-English
 
-#### METEOR (Fig \ref{})
+#### METEOR 
+(Fig \cite{})
 The scores are similar across all domains and language pairs, except ECB.
 In Czech-English the scores range between 18.5% (EMEA) , 17% (Europarl), 20% (mixed) and 30% in ECB
 The ECB in German-English achieved 25% where both EMEA and mixed scored 18%. The Europarl reached 14.5%
 
 ### Language Pairs
-The figure \ref{} shows three graphs with each four groups of two bars.
+The figure \cite{} shows three graphs with each four groups of two bars.
 Each graph represents the relative improvement of one metric measured over a model trained without prefix constraints to the model trained with prefix constraints.
 The grouped bars represent the language pairs, where the first bar is German-English and the second pair represents Czech-English.
 
@@ -124,7 +127,7 @@ The ROUGE-L metric shown in the second row decreased over all language pairs and
 
 The last row shows the performance change for the METEOR score. It looks similar to the BLEU score change.
 For ECB and EMEA the performance decreased and on the mixed data set the score improved over both language pairs.
-However the improvement was smaller and in the Czech-English pair only at 0.19%.
+However, the improvement was smaller and in the Czech-English pair only at 0.19%.
 In the Europarl test set the METEOR score improved by only 1.31% in German-English where the Czech-English pair's score decreased by 1.85%
 
 All scores are relative differences and not actual score points.
