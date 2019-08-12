@@ -48,3 +48,13 @@ Prefix or Side Constraints describe a class of domain control mechanisms, where 
 This can be direct modifications in the text, like the decoration of certain essential words or more general tags that are added in front of a sentence, word, or even corpus.
 The concept of side constraint was introduced by \cite{Sennrich:16} and adapted for domain control by \cite{kobus:16}.
 
+### Languages
+Another challenge in NMT is language adaption and control.
+\cite{} has shown that certain languages can be translated without ever training on the actual trainig data.
+The latest research includes even a showcase where NMT was able to translate an extinct language \cite{luo:19}.
+However, multi language models try to understand and produce the same content in different notations.
+While prefix constrained have been shown to help on that topic too, I evaluated them only on domain control. __diesen SAtz weglassen oder ändern__
+
+__hier wäre jetzt ein hervorragender Zeitpunkt um nochmal auf die Verwandten Sprachen einzugehen und zu begründen wieso man meinen könnte sie wären leichter zusammen zu übersetzen__
+
+
