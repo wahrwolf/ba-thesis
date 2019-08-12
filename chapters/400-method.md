@@ -16,13 +16,13 @@ I used the three domains FINANCE, LAW, and MEDICAL for my experiments.
 These domains share certain semantic qualities like a formal and precise language and a domain-specific jargon.
 
 For the FINANCE domain, I used version 1 of the website and documentation of the European Central Bank \shortcite{tiedemann:12. This corpus will be referred to as ECB.
-For the LAW domain, I used version 7 of a parallel corpus extracted from the European Parliament web site \shortcite{tiedemann:12}. This corpus will be referred to as Europarl.
-For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency \shortcite{tiedemann:12} , which will be referred to as EMEA.
+For the LAW domain, I used version 7 of a parallel corpus extracted from the European Parliament website \shortcite{tiedemann:12}. This corpus will be referred to as Europarl.
+For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency \shortcite{tiedemann:12}, which will be referred to as EMEA.
 
-All of the used corpora are accessible through the OPUS project \cite{}.
+All of the used corpora are accessible through the OPUS project \cite{tiedemann:12}.
 
 ## Data Preparation
-__hier fehlt glaube ich noch wie du die corpora pro einzeldomain reduziert und zu einem neuen usammengebaut hast!__
+A new corpus was created by reducing the domain corpora and combining them into one multi domain corpus.
 The newly generated corpus was then prepared for neural network training. During the preprocessing, the words were split into tokens of high occurrence using BPE. Afterward, the domain control mechanism was applied to the data set.
 
 ### Data Slicing
@@ -44,23 +44,23 @@ The resulting corpora were: Not modified data in Czech-English (CZ-EN) and Germa
 In the following, I will refer to them as Clean-de-en, Clean-cs-en, Tagged-de-en, and Tagged-cs-en.
 
 ## Training and Optimization
-To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and performed one hyperparameter optimization round. The used parameter was adapted from multiple sources \ref{} __Reference__ and will be explaines subsequently.
+To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and performed one hyperparameter optimization round. The used parameter was adapted from multiple sources \shortcite{kobus:16} \shortcite{Sennrich:16} \shortcite{luong:15} and will be explained subsequently.
 
 ### Model
 I used an Encode-Decoder Recurrent Neuronal Network with "Long Short-Term Memory" \shortcite{zaremba:14} gates, with a dropout probability of 0.3, two layers, and 1000 hidden states.
-On the source and target side I used 500 word embeddings \cite{}.
-For the attention \cite{} behavior I used the "general" \cite{} attention type and the "softmax" \cite{} function for the attention and the generator.
+On the source and target side I used 500 word embeddings \cite{bahdanau:14}.
+For the attention \cite{vaswani:17} behavior I used the "general" \cite{long:15} attention type and the "softmax" \cite{liu:16} function for the attention and the generator.
 
 ### Hyper Parameter
 For the optimizer, I run multiple configurations.
 In all runs, a mini-batch size of 32 sentences for the training and 16 sentences for the validation was used.
-For the optimizer, I used stochastic gradient descents \shortcite{}, "adam \shortcite{}", and "adadelta \shortcite{}".
+For the optimizer, I used stochastic gradient descents \shortcite{bottou:10}, "Adam \shortcite{kingma:14}", and "ADADELTA \shortcite{zeiler:12}".
 I ran all of them with learning rates 1, 0.1 and 0.001 and started to decay the learning rate by 0.3 per epoch after 5 or 10 epochs and once per optimizer and learning rate without any decay.
 The gradient was set to be renormalized if the norm over the gradient vector exceeded 5.
 
 ### Training
 I used the \cite{opennmt} framework for the implementation of the model and the training procedure.
-I built an MQTT \shortcite{} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
+I built an MQTT \shortcite{light:17} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
 Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.
 All models were trained multiple times to ensure the proper distribution of start vectors.
@@ -68,7 +68,7 @@ During the training, I logged the training accuracy and calculated the validatio
 However, the validation score was not used for early stopping.
 
 ## Comparison
-To compare the score impact and evaluate a possible connection with the relatedness of the languages, I picked the best models from the training and measured its performance with three metrics (BLEU\shortcite{}, METEOR\shortcite{}, ROUGE-L\shortcite{}).
+To compare the score impact and evaluate a possible connection with the relatedness of the languages, I picked the best models from the training and measured its performance with three metrics (BLEU\shortcite{Papineni:02}, METEOR\shortcite{banerjee:05}, ROUGE-L\shortcite{lin:04}).
 
 ### Metrics
 I used three different metrics to measure the translation quality of the trained neural networks (BLEU, METEOR, and Rouge-L).
@@ -78,7 +78,7 @@ Since the corpus was aligned, all scores were calculated in comparison to a conv
 
 ### Model Selection
 For each language pair, the best model was chosen according to overall score with and without prefix constraint resulting in four models: Clean-de-en, Clean-cs-en, Tagged-de-en, and Tagged-cs-en
-The validation data sets were translated using these models and metrics (BLEU\shortcite{}, METEOR\shortcite{}, ROUGE-L\shortcite{}) were calculated for each resulting translation.
+The validation data sets were translated using these models and metrics (BLEU\shortcite{Papineni:02}, METEOR\shortcite{banerjee:05}, ROUGE-L\shortcite{lin:04}) were calculated for each resulting translation.
 
 ### Prefix Constraint
 Per domain, a data set of 1,200 randomly picked example sentences was prepared in the same way as the training data, except that the BPE merges were not relearned but reused to generate the same tokens.

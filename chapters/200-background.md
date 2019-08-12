@@ -30,14 +30,14 @@ With enough training data, they can even translate articles or more elaborate te
 
 In NMT text collections from the same source are referred to as one corpus.
 A corpus may share the same context (domain) or is related to a particular event.
-Especially useful for NMT are corpora, which are available in multiple languages (aligned corpora), because they can be used to evaluate the performance of a model __Reference__,  by translating the corpus from one language into another language and then comparing the generated translation with the available reference translation, to check the translation quality.
+Especially useful for NMT are corpora, which are available in multiple languages (aligned corpora), because they can be used to evaluate the performance of a model \shortcite{Papineni:02},  by translating the corpus from one language into another language and then comparing the generated translation with the available reference translation, to check the translation quality.
 
 
 ### Byte-Pair-Encoding (BPE)
 One of the main challenges in current NMTs is the choice of the available vocabulary.
 If too many words are included, the networks tend to forget rarely used words or become too general.
 On the other hand, if the vocabulary is too small, the networks cannot learn complex grammar forms.
-An approach to solve this is to split up long words into multiple symbols (Byte Pair Encoding) __Reference__.
+An approach to solve this is to split up long words into multiple symbols (Byte Pair Encoding)\shortcite{koehn:16}.
 Instead of using a list of actual words, the dictionary consists of numerous used character pairs or subwords.
 This allows the network to learn common base words as well as pre- and suffixes.
 \shortcite{Sennrich:15} have shown that this results in an overall improvement and allows the model to learn more complex grammar forms.
@@ -46,27 +46,30 @@ This allows the network to learn common base words as well as pre- and suffixes.
 ### Content Domains
 Another challenge in translations is context, because each industry has its own lingo.
 Contexts might be specialized through vocabularies like technical terms and standard shared definitions or even textual structures and tone.
-This often disting set of rules, such as tone, vocabulary, or any other substantial similarity are define as a domain __Reference__.
+This often distinct set of rules, such as tone, vocabulary, or any other substantial similarity are defnied as a domain \shortcite{koehn:17}.
 
-In Neural Machine Translation, multiple mechanisms are known and used to translate across multiple domains, for example prefix or side constrains.
+In Neural Machine Translation, multiple mechanisms are known and used to translate across multiple domains, for example prefix or side constrains \shortcite{chu:17}.
 
 ### Prefix/Side Constraints
-Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network, to identify the domain of the text, which __helps the model to utilize similarities between domains better. - hier erklären wofür die genutzt werden - also wie das die modelle verbessert__
+Prefix or Side Constraints describe a class of domain control mechanisms, where additional tokens are provided for the neural network, to identify the domain of the text.
 This can be direct modifications in the text, like the decoration of certain essential words or more general tags that are added in front of a sentence, word, or even corpus.
 The concept of side constraint was introduced by \cite{Sennrich:16} and adapted for domain control by \cite{kobus:16}.
 
 ### Languages
 Another challenge in NMT is language adaption and control.
-\cite{} has shown that certain languages can be translated without ever training on the actual trainig data and \cite{luo:19} impressivley demonstratet that a NMT was able to translate an extinct language.
-__hier wäre jetzt ein hervorragender Zeitpunkt um nochmal auf die Verwandten Sprachen einzugehen und zu begründen wieso man meinen könnte sie wären leichter zusammen zu übersetzen. ZB so?:__
-However, it is unknonw to date which relationship these languages 
+\cite{johnson:17} has shown that certain languages can be translated without ever training on the actual language data (Zero Shot Translation) and \cite{luo:19} impressivley demonstratet that a NMT was able to translate an extinct language.
+\cite{hajic:00} shows that a close affinity between languages simplify certain translation actions.
+\cite{mikolov:13} found that morphological features can improve the translation performance in certain situations.
+However, it is unknown to date which relationship languages and domain features have.
 
 Since languages are grouped by certain language families and language branches, it can be suspected that similar languages may benefit from similar models.  
-A language family is a group of languages that descend from a common ancestor sucha as the indo-european languages or the “sino-tibetian languages” __check name of family__ . Typical examples for languiages branches is the Germanic branch containing languages such as German, English, dutch and Flemish in contrast to the romance language branch with languages such as Latin, Italian, French and Spanish or the slavonic language branch such as  __insert examples___ __Reference__. Languages within the same branch are closer related than outside of the branch and share share some similarities in terms of vocabulary or certain structural similarities. 
+A language family is a group of languages that descend from a common ancestor such a as the Indo-European languages or the “Sino-Tibetan languages”.
+Typical example for a language branch is the Germanic branch containing languages such as German, English, Dutch and Flemish in contrast to the Romance language branch with languages such as Latin, Italian, French and Spanish or the Slavonic language branch such as  Czech and Russian \shortcite{wichmann:10}. Languages within the same branch are closer related than outside of the branch and share share some similarities in terms of vocabulary or certain structural similarities \shortcite{georgi:10}.
 
-__please check this!!!___
-___It was shown by _Reference_ that prefix constrains are beneficial in 
-Thus the question arises if the use of prefix constrains mechanisms is of benefit in unrelated languages.___
+It was shown by \cite{kobus:16} that prefix constrains are beneficial in English-French.
+\cite{takeno:17} adapted the method for English-Japanese translation.
+No comparison of the performance impact between the prefix constraint was done.
+Thus the question arises if the use of prefix constrains mechanisms can be generalized and used with any language pair.
 
 
 
