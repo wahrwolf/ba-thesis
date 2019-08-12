@@ -1,33 +1,33 @@
 # Discussion
-In the following section, I review my results and compare them to the current state of the art, as well as my to prediction and research my question.
+In the following section, I review my results and compare them to the current state of the art, as well as to my to prediction and my research question. __du hast keine prediction gemacht!__ __und deine researchquestion ist nicht genau ausgearbeitet in der Einleitung - dazu hab ich aber in der einleitung ne idee gehbat - schau mal nach__
 
 ## Data Selection
-The distributions of the number of words and the word's length, show that the domains had some structural differences.
-The EMEA had corpus in general shorter sentences with longer words.
-However, while the median word and sentence length differ a little, the ECB and Europarl corpus seemed to be similar structured, especially compared to the EMEA corpus.
-Since both ECB and Europarl are transcripts of sittings while EMEA consists mostly of patience information, the similarities seem to be reasonable.
+The distributions of the number of words and the word length, show that the domains had some structural differences.
+The EMEA corpus consisted in general of shorter sentences with longer words.
+However, while the median word and sentence length differed a little, the ECB and Europarl corpus seemed to be similar structured, especially compared to the EMEA corpus.
+Since both ECB and Europarl are transcripts of meetings while EMEA consists mostly of patience information, the similarities seem to be reasonable.
 
 ## Data Preparation
 During the data preparation step, I reduced the data sets by a large amount.
 I separated the corpus into smaller logical units by analyzing the text manually, since no index was available for my data.
 I choose the number of words and word length as two simple metrics to evaluate the original and reduced corpora.
 As seen in \ref{corpus_stats}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
-In the EMEA corpus, the word length distribution differs visibly from the original corpus.
+In the EMEA corpus, the word length distribution differs obviously from the original corpus.
 Since this corpus contains many brand names, I assumed that the variation in the small logical units was rather high.
 
 ## Training and Optimization
 ### Training
 The overall performance of the best models according to BLEU indicates a successful training.
-According to \cite{lavie:10} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
-The top 5 models from each corpus reached that mark after 10,000 trainings steps, which translates to 5 epochs.
+According to \cite{lavie:10} the achieved score of 20 % points in BLEU can be interpreted roughly as an understandable but bad translation.
+The top 5 models from each corpus reached that mark after 10,000 trainings steps, which is equivalent to 5 epochs.
 
-The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainigs curves as described by \cite{lipton:15}
+The plots \ref{train-bad_tran} and \ref{train-good_train} show typical trainig curves as described by \cite{lipton:15}
 
-The model plotted in \ref{train-good_train} achieved reasonable results. The validation accuracy indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
+The model plotted in \ref{train-good_train} achieved reasonable results. __woher kommt diese Wertung?__ The validation accuracy indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
 
 ## Evaluation
-### Metrics Interpretation
-I used three different metrics to measure the translations quality of the trained neural networks calculated against a human translation.
+### Metric Interpretation
+I used three different metrics to measure the translations quality of the trained neural networks in comparison to a conventional translation.
 
 #### BLEU
 The BLEU score is computed by measuring the difference between word groups and is calculated over the whole text.
@@ -64,13 +64,13 @@ Therefore, if prefix constraints are available, the network can focus more on th
 
 The difference between improvement in the BLEU(indicating precision) and METEOR score, indicates that the prefix constraints helped more with the structural features than the content features.
 
-The ROUGE-L indicates that the addition of prefix constraints decrease the domain specialization in all domains, but its affects on the mixed dataset are rather small.
+The ROUGE-L indicates that the addition of prefix constraints decrease the domain specialization in all domains, but its effects on the mixed dataset are rather small.
 Since the ECB and Europarl corpus are similar, the generalization does not impact the performance as much as on the EMEA test set. 
 
-Overall, the generalizability seems to improve at the expense of specialised knowledge.
+Overall, the generalizability seems to improve at the expense of specialized knowledge.
 The translation precision improves more than the comprehensibility.
 
-### language comaparison
+### language comparison
 The comparison of the score change between the language pairs in figure \ref{} show two major differences.
 In the German-English pair, the performance of in the Europarl test set improved, while the performance in Czech-English decreased.
 This indicates that addition of prefix constraints actually helped the model in German-English to differentiate one more domain and build up special knowledge.
@@ -104,7 +104,7 @@ More complex metrics could be used to review my data and prove the described rel
 
 ### Hyper Parameter Selection and Optimization
 I ran only one round of hyper parameter optimization and compared only a few parameters and values.
-My trainings curves show typical aspects of a succesfull training, but better configuration may exists.
+My trainings curves show typical aspects of a succesfull training, but better configurations may exist.
 This can be examined by rerunning the optimization with more configurations.
 
 ### Better Performance of the distant Language Pair
@@ -113,15 +113,15 @@ This does not affect my comparison, since my discussion interpreted only the rel
 On top of that, as \ref{} explained, the scores does not represent the overall translation capabilities and are only comparable between the same language and the same corpus.
 In my training the Czech-English models ran for 10% more steps, since the corpora splits were slightly different than in the German-English corpora.
 However, as discussed in \ref{} the overall key metrics were similar and the models were trained on the same number of epochs.
-As mentioned in the limitations \ref{} the parameter selection may not included the best model.
+As mentioned in the limitations \ref{} the parameter selection may not have included the best model.
 I suggest to use an exact alignment for all three languages and the training with additional trainings configuration to prove this point beyond a doubt.
 
-## Followup
+## Perspective
 Based on my results it would be interesting to evaluate the following aspects
 ### More Domain and Language Comparison
-The indication should be evaluated with more data.
+The indication should be evaluated with more data. __which indivation?__
 The evaluation with more and more diverse domains may reveal additional insights on the impact of prefix constraints.
-Additional languages for the training with English sources text, as well as new and different language pairs should be tested.
+Additional languages for the training with English source texts, as well as new and different language pairs should be tested.
 
 ### Evaluation with full Corpora
 I ran my models on a reduced data set.
@@ -129,10 +129,10 @@ The training without the reduction can improve the generalizability of my findin
 
 ### Training with additional Attention Types
 In the thesis I used only a very simple attention type for the models.
-However since the prefix constraints add additional meta information, a more complex attention type might benefit emensly from this mechanism.
+However since the prefix constraints add additional meta information, a more complex attention type might benefit immensly from this mechanism.
 
 ## Future work
-Based on my findings I suggests the following future projects:
+Based on my findings I suggest the following future projects:
 ### Reviewing of Domain Control Mechanism on different Language Pairs
 Most domain control and adaption mechanism are only tested for one or two language pairs.
 However my findings indicate that the language selection can have a huge impact of the performance of domain control mechanism.
@@ -142,16 +142,16 @@ Especially \ref{japsen} rely on the work of \ref{kobus} but use largely unrelate
 ### Creation of a relatedness Score
 To measure the relatedness of language pairs and calculate a possible correlation with the performance on translation systems, I suggest the creation of a new and simple score.
 The FSI uses the necessary study time to rank the training difficulty of language pairs.
-I suggest the creation and evaluation of a score based on the median trainings time.
+I suggest the creation and evaluation of a score based on the median training time.
 This information can be easily collected for humans and tested for neural machine translation.
 
 ### Extend the OPUS Project
 The OPUS project host a variety of corpus data.
-However the data is only available unstructured.
+However the data is only available in an unstructured format.
 I invite all researchers to submit their trainings data and preparation scripts.
 Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts.
 
 # Conclusion
 In conclusion, the problem of domain control in neural machine translation is very challenging and not solved in any translation related area.
-As my thesis and the current research shows, the impact of domain control mechanism can not always be predicted and depends on the a lot of different factors.
+As my thesis and the current research shows, the impact of domain control mechanism can not always be predicted and depends on a lot of different factors.
 The domain and language selection should always be considered when choosing any domain adaption mechanism.
