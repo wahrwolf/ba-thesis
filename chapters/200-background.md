@@ -57,10 +57,9 @@ However, it is unknonw to date which relationship these languages
 Since languages are grouped by certain language families and language branches, it can be suspected that similar languages may benefit from similar models.  
 A language family is a group of languages that descend from a common ancestor sucha as the indo-european languages or the “sino-tibetian languages” __check name of family__ . Typical examples for languiages branches is the Germanic branch containing languages such as German, English, dutch and Flemish in contrast to the romance language branch with languages such as Latin, Italian, French and Spanish or the slavonic language branch such as  __insert examples___ __Reference__. Languages within the same branch are closer related than outside of the branch and share share some similarities in terms of vocabulary or certain structural similarities. 
 
-__please check this!!!
-It was shown by _Reference_ that prefix constrains are beneficial in 
-Thus the question arises if the use of prefix constrains mechanisms is of benefit in unrelated languages. 
-___
+__please check this!!!___
+___It was shown by _Reference_ that prefix constrains are beneficial in 
+Thus the question arises if the use of prefix constrains mechanisms is of benefit in unrelated languages.___
 
 
 
