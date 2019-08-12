@@ -1,0 +1,48 @@
+\pagebreak
+# Appendix
+## Images
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_bleu.png}
+	\caption{}
+	\label{fig:comparison_bleu}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_meteor.png}
+	\caption{}
+	\label{fig:comparison_meteor}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_rouge.png}
+	\caption{}
+	\label{fig:comparison_rouge}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/corpus_stats-sentence.png}
+	\caption{}
+	\label{fig:corpus_stats-sentence}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/corpus_stats-word.png}
+	\caption{}
+	\label{fig:corpus_stats-word}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/language-comparison.png}
+	\caption{}
+	\label{fig:language-comparison}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/optim_top_5.png}
+	\caption{}
+	\label{fig:optim_top_5}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/train_bad.png}
+	\caption{}
+	\label{fig:train_bad}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/train_good.png}
+	\caption{}
+	\label{fig:train_good}
+\end{figure}

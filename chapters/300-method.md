@@ -7,14 +7,15 @@ I used a similar setup but because my focus is on the performance impact between
 
 ## Data Selection and Preparation
 To compare the performance impact of a domain control mechanism, I build a multi domain corpus with two language pairs of different relatedness.
+
 ### Domain and Corpus Selection
 I used the three domains FINANCE, LAW and MEDICAL for my experiments.
 These domain share certain semantic qualities like informality and a precise language.
 All three contain domain specific jargon.
 
-For the FINANCE domain I used version 1 of the website and documentation of the European Central Bank \cite{tiedemann). This corpus will be refereed as ECB.
-For the LAW domain I used version 7 of a parrellel coprus extracted from the European Parliament web site \cite{philipp koehn}. This corpus will be referred as Europarl.
-For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency, which will be refereed as EMEA.
+For the FINANCE domain I used version 1 of the website and documentation of the European Central Bank \shortcite{tiedemann:12}. This corpus will be refereed as ECB.
+For the LAW domain I used version 7 of a parallel corpus extracted from the European Parliament website \shortcite{tiedemann:12}. This corpus will be referred as Europarl.
+For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency \shortcite{tiedemann:12}, which will be refereed as EMEA.
 
 In the original paper, the trainings corpus consists of 5 domains from partly proprietary corpora.
 
@@ -36,7 +37,7 @@ Those units were than combined into a training set with roughly 70,000 example s
 This new corpora were aligned in German-English and Czech-English.
 I calculated the distribution of word and sentence length for the original corpora, the validation and the training set.
 
-### BPE
+### Byte-Pair-Encoding
 I used Byte Pair Encoding to equalize the number of tokens per text.
 For that I run the implementation of \cite{Sennrich:15} and reduced the text into 32,000 tokens as suggested by \cite{kobus:16}.
 A unique sequence was used to mark word endings and pairs.
@@ -51,10 +52,10 @@ I had the following four corpora: Not modified data in DE-EN and CS-EN and Modif
 In the following I will refer to them as Clean-de-en, Clean-cs-en, Tagged-de-en and Tagged-cs-en.
 
 ## Training and Optimization
-To evaluate the performance I trained a simple Recurrent Neural Network Model \cite{} and with one hyper parameter optimization round.
+To evaluate the performance I trained a simple Recurrent Neural Network Model \cite{bahdanau:14} and with one hyper parameter optimization round.
 
 ### Model
-I used an Encode-Decoder Recurrent Neuronal Network with LSTM gates, with a dropout probability of 0.3 , 2 layers, and 1000 hidden states
+I used an Encode-Decoder Recurrent Neuronal Network with Long Short-Term Memory\cite{zaremba:14} gates, with a dropout probability of 0.3 , 2 layers, and 1000 hidden states
 I used 500 word embeddings \cite{} on the source and target side.
 For the attention \cite{} behavior I used the "general" \cite{} attention type and the "softmax" \cite{} function for the attention and the generator.
 
@@ -66,7 +67,7 @@ I ran all of them with learning rates 1, 0.1, 0.001 and 0.0001 and started to de
 The gradient was set to renormalized if the norm over the gradient vector exceeds 5.
 
 ### Training
-I used the \cite{openNMT} framework for the implementation of the model and the training procedure.
+I used the \cite{opennmt} framework for the implementation of the model and the training procedure.
 I build a MQTT scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti.
 Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.

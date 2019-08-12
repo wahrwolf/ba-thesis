@@ -7,12 +7,9 @@ Lastly I will compare the impact of side constraint between two German-English a
 
 ## Data Selection and Preparation
 To ensure, that the reduction of the data set did not change the defining characteristics I compared the number of words and sentence length on the reduced and original data set.
-The distributions are shown in \ref{corpus-stats_sentence_length} and \ref{corpus-stats_word_length}.
+The distributions are shown in \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
 
-!["Boxplots with Number of Word"\label{corpus-stats_sentence_length}]: https://wolfpit.net/share/archive/images/corpus_stats-Number_of_Words_per_Sentence.png
-!["Boxplots with Length of Word"\label{corpus-stats_word_length}]: https://wolfpit.net/share/archive/images/corpus_stats-Number_of_Words_per_Sentence.png
-
-The figures \ref{corpus-stats_sentence_length} and \ref{corpus-stats_word_length} both show a 3x4 matrix with 3 boxplots each.
+The figures \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word} both show a 3x4 matrix with 3 boxplots each.
 The first two plots per row show the distribution over the language pair DE-EN, and the 3th and 4th over CS-EN.
 Each row shows the distribution over one domain.
 
@@ -48,7 +45,7 @@ For a selection of models the BLEU score was calculated afterwards to visualize 
 All models were used to translate the validation data sets after 6, 12, and 18 epochs.
 
 ### Hyper Parameter
-The table in \cite{hyperparam-ranking-table} shows the ranking for all trainings configurations for the corpus without prefix constraints in the DE-EN language pair.
+The table in \ref{hyperparam-ranking-table} shows the ranking for all trainings configurations for the corpus without prefix constraints in the DE-EN language pair.
 It shows the optimizing method, the learning rate, the start of the decay and the meteor score.
 
 (https://tex.stackexchange.com/questions/214461/highlight-row-in-latex on how to highlith a row)

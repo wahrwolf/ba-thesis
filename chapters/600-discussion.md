@@ -18,7 +18,7 @@ Since this corpus contains many brand names, I assumed that the variation in the
 ## Training and Optimization
 ### Training
 The overall performance of the best models according to BLEU indicates a successful training.
-According to \cite{google bleu} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
+According to \cite{lavie:10} the achieved score of 20% points in BLEU can be interpreted roughly as an understandable but bad translation.
 The top 5 models from each corpus reached that mark after 10,000 trainings steps, which translates to 5 epochs.
 
 The plots \ref{train-bad_tran} and \ref{train-good_train} show typically trainigs curves as described by \cite{lipton:15}
@@ -52,7 +52,7 @@ During the model selection, the ranking using the overall score was similar to t
 This tendency is already known and described by other.
 
 ### Prefix constraints
-In the \cite{result section} I described how the models performed absolute according to METEOR in the different domains and how the performance changed in relation to the absolute score.
+In the \ref{Results} I described how the models performed absolute according to METEOR in the different domains and how the performance changed in relation to the absolute score.
 All selected models performed best on the ECB and benefits most from prefix constraints in the Europarl corpus.
 The performance impact in the mixed test set is similar to the described impact by \cite{kobus:16}
 
