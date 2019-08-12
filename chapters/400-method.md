@@ -52,7 +52,7 @@ I ran all of them with learning rates 1, 0.1 and 0.001 and started to decay the 
 The gradient was set to be renormalized if the norm over the gradient vector exceeds 5.
 
 ### Training
-I used the \reference{opennmt} framework for the implementation of the model and the training procedure.
+I used the \cite{opennmt} framework for the implementation of the model and the training procedure.
 I build an MQTT \shortcite{} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
 Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.
