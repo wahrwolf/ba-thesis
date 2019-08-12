@@ -71,13 +71,13 @@ During the last 15,000 steps curve reaches a plateau at the 20 % mark.
 
 ### Candidate Selection
 For the evaluation I picked the following four combinations, which are highlighted in \ref{}
-The configurations were:
+The configurations were as follows:
 
 ### Prefix Constraints
 The figures \ref{1..4} show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
 All figures show two graphs with four groups of two bar diagrams each.
 The top graph shows the absolute score for the language pair German-English and the bottom graph for Czech-English.
-The first bar in each group represents the performance without prefix constraints and the second bar with prefix constraints.
+The first __use colour here!__ bar in each group represents the performance without prefix constraints and the second bar with prefix constraints.
 
 #### BLEU 
 In both diagrams (Fig \ref{}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
@@ -93,17 +93,17 @@ The mixed data set  had a score of 38% in German-English and 45% in Czech-Englis
 
 #### METEOR 
 The scores (Fig \cite{}) are similar across all domains and language pairs, except ECB.
-In Czech-English the scores range between 18.5% (EMEA) , 17% (Europarl), 20% (mixed) and 30% in ECB
+In Czech-English the scores ranged between 18.5% (EMEA) , 17% (Europarl), 20% (mixed) and 30% in ECB
 The ECB in German-English achieved 25% where both EMEA and mixed scored 18%. The Europarl reached 14.5%
 
 ### Language Pairs
-The figure \ref{} shows three graphs with each four groups of two bars.
+The figure \ref{} shows three graphs with four groups of two bars.
 Each graph represents the relative improvement of one metric measured over a model trained without prefix constraints to the model trained with prefix constraints.
 The grouped bars represent the language pairs, where the first bar is German-English and the second pair represents Czech-English.
 
 In the first row the score change for BLEU is displayed.
 The score decreased for the domains ECB and EMEA and increased in the mixed data set.
-For the German-Enlgish pair the score improved by 3.81% and decreased by 2.81% for the Czech-English pair.
+For the German-English pair the score improved by 3.81% and decreased by 2.81% for the Czech-English pair.
 
 The ROUGE-L metric shown in the second row decreased over all language pairs and domains. In the combined data set by less than 1%, in the ECB and Europarl between 1.6% and 2.8% and in the EMEA by nearly 6%.
 
