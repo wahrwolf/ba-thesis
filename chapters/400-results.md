@@ -131,7 +131,7 @@ In the Czech-English pair the model scored a median 40% over ECB, 20.5% for EMEA
 
 ### Rouge 
 \begin{figure}
-	\includegraphics[scale=1]{img/comparison_bleu.png}
+	\includegraphics[scale=1]{img/comparison_rouge.png}
 	\caption{}
 	\label{fig:comparison_rouge}
 \end{figure}
@@ -141,7 +141,7 @@ In the EMEA domain the German-English with prefix constrains scored 42.62% and w
 In Czech-English the model with prefix-constraints scored 41.07% and the model without 43.69%.
 The mixed data set  had a score of 38% in German-English and 45% in Czech-English
 
-### METEOR 
+### METEOR
 \begin{figure}
 	\includegraphics[scale=1]{img/comparison_meteor.png}
 	\caption{}

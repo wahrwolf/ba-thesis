@@ -74,6 +74,7 @@ To compare the score impact and evaluate a possible connection with the relatedn
 I used three different metrics to measure the translation quality of the trained neural networks (BLEU, METEOR, and Rouge-L).
 An overall score was calculated by adding the rank of all scores.
 All data preprocessing steps were removed before calculating the scores.
+The scores were calculated with the implementations of \cite{sharma:17}(METEOR, ROUGE-L) and the OpenNMT-Project \shortcite{opennmt} (BLEU).
 Since the corpus was aligned, all scores were calculated in comparison to a conventional translation.
 
 ## Model Selection

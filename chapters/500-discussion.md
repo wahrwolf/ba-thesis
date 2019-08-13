@@ -11,19 +11,21 @@ Since both ECB and Europarl are transcripts of meetings while EMEA consists most
 During the data preparation step, I reduced the data sets by a large amount.
 I separated the corpus into smaller logical units by analyzing the text manually, since no index was available for my data.
 I choose the number of words and word length as two simple metrics to evaluate the original and reduced corpora.
-As seen in \ref{corpus_stats}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
+As seen in \ref{data-selection-and-preparation}, the characteristics of the source corpora seem to be preserved in the reduced data sets.
 In the EMEA corpus, the word length distribution differs obviously from the original corpus.
 Since this corpus contains many brand names, I assumed that the variation in the small logical units was rather high.
 
 # Training and Optimization
 ## Training
 The overall performance of the best models according to BLEU indicates a successful training.
-According to \cite{lavie:10} the achieved score of 20 % points in BLEU can be interpreted roughly as an understandable but bad translation.
+According to \cite{lavie:10} the achieved score of 20 % points in BLEU can be interpreted roughly as an understandable but bad translation as seen in \ref{tab:help_bleu}
 The top 5 models from each corpus reached that mark after 10,000 trainings steps, which is equivalent to 5 epochs.
 
-The plots \ref{train-bad_tran} and \ref{train-good_train} show typical trainig curves as described by \cite{lipton:15}
+The plots \ref{fig:train_bad} and \ref{fig:train_good} show typical training curves as described by \cite{lipton:15}
 
-The model plotted in \ref{train-good_train} achieved reasonable results. __woher kommt diese Wertung?__ The validation accuracy indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
+The validation accuracy in fig \ref{fig:train_good} indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
+
+\input{"tables/bleu_interpretation.tex"}
 
 # Evaluation
 ## Metric Interpretation
@@ -31,29 +33,34 @@ I used three different metrics to measure the translations quality of the traine
 
 ### BLEU
 The BLEU score is computed by measuring the difference between word groups and is calculated over the whole text.
-The metric was developed to measure translation quality __Reference__.
+The metric was developed by \cite{Papineni:02} to measure translation quality.
 In this thesis the BLEU score is used to measure the overall translation precision.
-__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
+The score can be interpreted according \cite{lavie:10}.
+As shown in fig \ref{fig:comparison_bleu} the best model achieved an score of 24 %, which indicates an understandable translation.
 
 ### METEOR
 The METEOR metric was developed to improve the correlation of human judgment with the translation score.
-It is calculated on sentence levels __Reference__.
+It is calculated on sentence levels \ref{banerjee:05}
 I used this score to represent the comprehensibility of the translation.
-__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
+The best model scored 20 % in the mixed data set.
+However the METEOR score can only be used for comparisons and not as scale.
 
 ### ROUGE-L
 The ROGUE-L score is calculated by measuring the similarity of longer subsequences.
-This score was developed to compare summaries __Reference__.
+This score was developed to compare summaries \shortcite{lin:04}.
 Since the score benefits from structural and long word matches I used this score to measure the domain specialization.
-__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
+The interpretation of the ROUGE score is only evaluated on summaries so the absolute score can not be interpreted here.
+However, its change is often used in model comparison \shortcite{sharma:17}
+
 
 ### Overall
-The overall score summarizes all three scores and is calculated throu addition of the ranks minus the total number of models times the number of metrics for the model __and is compared to all other models trained in the same hyper optimization round.__ __bitte den letzen Teil prüfen, den versteh ich nicht__
-__jetzt noch einen Satz darüber wie der Score in deinem Besten Modell ist und was das bedeutet!_
+The overall score summarizes all three scores and is calculated through addition of the ranks minus the total number of models times the number of metrics for the models.
+It represents the fitness of the model in relation to all models, that were trained on the same data.
 
 ## Model Selection
 During the model selection, the ranking using the overall score was similar to the ranking by individual scores.
-This tendency is already known and described by other authors __Reference__. __vllt kurz erwähnen wieso sie meinen dass die zusammenhängen__
+Since all scores rate the similarities to a reference texts, an overall correlation is expected.
+This tendency is already known and described by other authors  \shortcite{przybocki:09}.
 
 ## Prefix constraints
 In the \ref{Results} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
@@ -75,18 +82,26 @@ Overall, the generalizability seems to improve at the expense of specialized kno
 The translation precision improves more than the comprehensibility.
 
 ## Language Comparison
-The comparison of the score change between the language pairs in figure \ref{} show two major differences.
-In the German-English pair, the performance of in the Europarl test set improved, while the performance in Czech-English decreased.
-This indicates that addition of prefix constraints actually helped the model in German-English to differentiate one more domain and build up special knowledge.
+The comparison of the score change between the language pairs in figure \ref{fig:language-comparison} show two major differences.  
 
-The performance loss in the precision (BLEU score) and comprehensibility (METEOR score) on the domain sets in the Czech-English pair are higher and the improvement in the mixed data set smaller.
+The first difference is the change in translation quality (measured by BLEU and METEOR) in the Europarl test set.
+In the English-German pair, the translation quality improved with the addition of prefix constraints.
+In contrast in English-Czech the translation quality decreased.
+This indicates that the addition of prefix constraints improved the domain specific translation in German-English.  
 
-\ref{} used multiple input languages to translate mixed domain content, and showed that domain boundaries are differently strict in different language. __Thus it can be assumed, that the selected languages differ in their domain boundaries. __ __check if this is BS__
-This can be also seen in figure \ref{}, which indicates that the domain differences in the selected data are more obvious in Czech-English than in German-English.
+The performance loss in the precision (BLEU score) and comprehensibility (METEOR score) on the domain sets in the Czech-English pair are higher and the improvement in the mixed data set smaller.  
 
-Overall the comparison shows that prefix constraints improve the translation comprehensibility and precision whenever the domain membership is not expressed clearly through structural differences.
-Since the structural key features can differ distinctly in languages the impact of prefix constraints impact is not always predictable.
-My results indicate that those domain feature appear more distinct in Czech-English and therefore in distant language pairs than in related pairs.
+\cite{Zoph:16} used multiple input languages for a neural machine translation and showed that combining languages can improve the translation quality.
+They found that the improvement is higher when distant languages are used.
+This indicates that domains or at least ambiguities are encoded differently in languages.
+While the classification of domain membership might be of similar difficulty over all domains, the pairwise differentiation may be different.  
+
+This can be also seen in fig figure \ref{fig:comparison_bleu}, which indicates that the domain differences between FINANCE (ECB) and LAW (Euroarl) are in the selected data more obvious in Czech-English than in German-English.  
+
+Overall the comparison shows that prefix constraints improve the translation comprehensibility and precision whenever the domain membership is not expressed clearly through structural differences.  
+  
+Since, the difficulty of domain differentiation  and domain classification may differ distinctly in languages the impact of prefix constraints impact is not always beneficial.
+My results indicate that the domain classes are more clearly defined in Czech-English than in German-English.
 However, additional research is needed to prove this for other language pairs and in general.
 
 # Limitations
