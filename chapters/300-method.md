@@ -15,21 +15,21 @@ For both pairs, I used English as the source language.
 I used the three domains FINANCE, LAW, and MEDICAL for my experiments.
 These domains share certain semantic qualities like a formal and precise language and a domain-specific jargon.
 
-For the FINANCE domain, I used version 1 of the website and documentation of the European Central Bank \shortcite{tiedemann:12. This corpus will be referred to as ECB.
+For the FINANCE domain, I used version 1 of the website and documentation of the European Central Bank \shortcite{tiedemann:12}. This corpus will be referred to as ECB.
 For the LAW domain, I used version 7 of a parallel corpus extracted from the European Parliament website \shortcite{tiedemann:12}. This corpus will be referred to as Europarl.
 For the last domain (MEDICAL) I used version 3 of a corpus made of PDF documents from the European Medicines Agency \shortcite{tiedemann:12}, which will be referred to as EMEA.
 
 All of the used corpora are accessible through the OPUS project \cite{tiedemann:12}.
 
 # Data Preparation
-A new corpus was created by reducing the domain corpora and combining them into one multi domain corpus.
+A new corpus was created by reducing the domain corpora and combining them into one multi-domain corpus.
 The newly generated corpus was then prepared for neural network training. During the preprocessing, the words were split into tokens of high occurrence using BPE. Afterward, the domain control mechanism was applied to the data set.
 
 ## Data Slicing
 Since no document separation was available, I analyzed the corpora manually and split all corpora in smaller documents of logical units.
-Those units were than combined into a training set with roughly 70,000 example sentences and a validation set of 15,000 sentences.
-This new corpora were aligned in German-English and Czech-English.
-I calculated the distribution of word and sentence length for the original corpora, the validation and the training set.
+Those units were then combined into a training set with roughly 70,000 example sentences and a validation set of 15,000 sentences.
+These new corpora were aligned in German-English and Czech-English.
+I calculated the distribution of word and sentence length for the original corpora, the validation, and the training data set.
 
 ## BPE
 Byte Pair Encoding was used to reduce the number of tokens to 32,000 as suggested by \cite{kobus:16}, by running the implementation of \cite{Sennrich:15}.
@@ -48,7 +48,7 @@ To evaluate the performance impact of prefix constraints, I trained a neural net
 
 ## Model
 I used an Encode-Decoder Recurrent Neuronal Network with "Long Short-Term Memory" \shortcite{zaremba:14} gates, with a dropout probability of 0.3, two layers, and 1000 hidden states.
-On the source and target side I used 500 word embeddings \cite{bahdanau:14}.
+On the source and target side, I used 500-word embeddings \cite{bahdanau:14}.
 For the attention \cite{vaswani:17} behavior I used the "general" \cite{luong:15} attention type and the "softmax" \cite{liu:16} function for the attention and the generator.
 
 ## Hyper Parameter
