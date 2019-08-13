@@ -6,7 +6,7 @@ I will then rank the models and compare the impact of prefix constraints between
 
 # Data Selection and Preparation
 To ensure that the reduction of the data set did not change the defining characteristics of the respective corpora, I compared the number of words and sentence length on the reduced and original data set.
-The distributions are shown in \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
+The distributions are shown in figure \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
 
 The figures \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word} both show a 3x4 matrix with three boxplots each.
 The first two plots per row show the distribution over the language pair DE-EN, and the 3rd and 4th over CS-EN.
@@ -21,7 +21,7 @@ None of the plots show major differences between the reduces corpus to the origi
 ## Number of words per Sentence
 \begin{figure}
     \includegraphics[scale=1]{img/corpus_stats-sentence.png}
-    \caption{Distribution over the words per sentence}
+    \caption{Distribution of number of words per sentence}
     \label{fig:corpus_stats-sentence}
 \end{figure}
 In most domains, sentences have between 0 and 50 words(interquartile range). In EMEA the sentence length was mostly between 0 and 25 words, and the median between 5 and 10 words. In all other domains the median was between 20 and 25 words per sentence. 
@@ -33,7 +33,7 @@ All other data sets showed no distinct differences.
 ## Word Length
 \begin{figure}
     \includegraphics[scale=1]{img/corpus_stats-word.png}
-    \caption{Distribuion over the word lengths}
+    \caption{Distribuion of word lengths}
     \label{fig:corpus_stats-word}
 \end{figure}
 Words mostly had a length between 0 and 10 characters. The median ranges from 4 to 6 in all domains. 
@@ -51,9 +51,9 @@ For a selection of models, the BLEU score was calculated to visualize the learni
 All models were used to translate the validation data sets after 6, 12, and 18 epochs.
 
 ## Hyper Parameter
-The table in \ref{tab:ranking_example} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
+Table \ref{tab:ranking_example} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
 Models are characterized by the optimization method, learning rate, start of the decay, and METEOR score.
-The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:optim_clean-cs-en} \ref{tab:optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
+Tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:optim_clean-cs-en} \ref{tab:optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
 
 ### Tables with Scores and rankings
 \input{"tables/optim_ranking-clean-de-en.tex"}
@@ -65,12 +65,12 @@ The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:opt
 
 
 ## Training
-The figures \ref{fig:train_bad} and \ref{fig:train_good} shows the validation accuracy and the training accuracy for each training step.
+Figures \ref{fig:train_bad} and \ref{fig:train_good} shows the validation accuracy and the training accuracy for each training step.
 Both metrics increase in a logarithmic manner. The training accuracy meets the 20 % mark after 10,000 training steps and growth to 30% in the next 25,000 training steps.
 The validation accuracy hits the 15% mark after 5,000 training steps and growths over the next 30,000 training steps to a value of 20 %.
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/train_bad.png}
-    \caption{}
+    \caption{Example of a training curve of an unsuccsessfull training}
     \label{fig:train_bad}
 \end{figure}
 
@@ -82,7 +82,7 @@ The validation accuracy reaches the 30 % mark after 5,000 training steps and gai
 Between step 15,000 and 35,000 the graph is constant around the 40 % mark. 
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/train_good.png}
-    \caption{}
+    \caption{Example of a training curve of a succsessfull training}
     \label{fig:train_good}
 \end{figure}
 
@@ -96,6 +96,8 @@ The second graph shows the BLEU score for the same training.
 The first non-zero point is found after ca 3,000 training steps. The plots scatter for another 7,000 steps between the 10 % and 20 % mark with a linear growing tendency.
 Between the 10,000th and the 20,000th training step, the points fluctuate between the 15 % and 20 % mark.
 During the last 15,000 steps curve reaches a plateau at the 20 % mark.
+\TODO{caption fehlt}
+
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/optim_top_5.png}
     \caption{}
@@ -110,6 +112,7 @@ For the evaluation I picked the following four combinations, which are highlight
 The configurations were as follows:
 
 ## Prefix Constraints
+\TODO{caption fehlt}
 \begin{figure}
     \includegraphics[scale=1]{img/language-comparison.png}
     \caption{}
@@ -121,6 +124,7 @@ The top graph shows the absolute score for the language pair German-English and 
 The first bar in each group represents the performance without prefix constraints, and the second bar with prefix constraints.
 
 ### BLEU 
+\TODO{caption fehlt}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_bleu.png}
     \caption{}
@@ -131,6 +135,7 @@ The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8%
 In the Czech-English pair, the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
 ### Rouge 
+\TODO{caption fehlt}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_rouge.png}
     \caption{}
