@@ -40,7 +40,7 @@ As shown in fig \ref{fig:comparison_bleu}, the best model achieved a score of 24
 
 ### METEOR
 The METEOR metric was developed to improve the correlation of human judgment with the translation score.
-It is calculated on sentence levels \ref{banerjee:05}
+It is calculated on sentence levels \cite{banerjee:05}
 I used this score to represent the comprehensibility of the translation.
 The best model scored 20 % in the mixed data set.
 However, the METEOR score can only be used for comparisons and not as scale.
