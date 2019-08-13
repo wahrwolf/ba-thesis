@@ -135,7 +135,8 @@ I suggest using an exact alignment for all three languages and the training with
 
 
 # Perspective
-Based on my results it would be interesting to evaluate the following aspects
+Based on my results it would be interesting to evaluate the following aspects:
+
 ## More Domain and Language Comparison
 The indication, that the performance impact of prefix constraints is connected or even correlates with the domain distinction between the language pairs should be evaluated with more data.
 The evaluation with more and more diverse domains may reveal additional insights on the impact of prefix constraints and the connection with the domain distinction differences.
@@ -151,6 +152,7 @@ However, since the prefix constraints add additional meta information, a more co
 
 # Future work
 Based on my findings, I suggest the following future projects:
+
 ## Reviewing of Domain Control Mechanism on different Language Pairs
 Most domain control and adaption mechanism are only tested for one or two language pairs.
 However, my findings indicate that language selection can have a huge impact on the performance of the domain control mechanism.
