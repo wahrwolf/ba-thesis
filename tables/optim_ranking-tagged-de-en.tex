@@ -1,0 +1,35 @@
+\begin{table}
+	\caption{Top Configurations for English-German with Prefix Constraints}
+	\label{tab:optim_tagged-de-en}
+	\centering
+\begin{tabular}{|c|c|c|r|}
+	\hline
+	optim   & learning rate & start decay steps after (Epoch)  & BLEU\\
+	\hline
+	 adadelta&       1     &        9875    & 22.670\\
+	   adam &     0.001   &       50000     & 22.660\\
+	   sgd  &       1     &       19750     & 22.410\\
+	\hline
+	\hline
+	& & & ROUGE-L \\
+	\hline
+	 adadelta&       1     &        9875   & 0.464\\
+	   adam &     0.001   &       50000    & 0.456\\
+	   sgd  &       1     &       50000    & 0.455\\
+	\hline
+	\hline
+	& & & METEOR \\
+	\hline
+	 adadelta&       1     &        9875     & 0.206\\
+	   adam &     0.001   &       50000     & 0.200\\
+	   sgd  &       1     &       50000     & 0.194\\
+	\hline
+	\hline
+	& & & Validation-Accuracy \\
+	\hline
+	   adam &     0.001   &        9875     & 38.517\\
+	   adam &     0.001   &       19750     & 38.362\\
+	   adam &     0.001   &       50000     & 38.114\\
+	\hline
+\end{tabular}
+\end{table}

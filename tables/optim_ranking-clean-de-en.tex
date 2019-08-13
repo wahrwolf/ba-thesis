@@ -1,0 +1,35 @@
+\begin{table}
+	\caption{Top Configurations for English-German without Prefix Constraints}
+	\label{tab:optim_clean-de-en}
+	\centering
+\begin{tabular}{|c|c|c|r|}
+	\hline
+	optim   & learning rate & start decay steps after (Epoch)  & BLEU\\
+	\hline
+	  adam  &     0.001    &        9875      & 23.9 \\
+	  adam  &     0.001    &       50000      & 23.6 \\
+	adadelta&       1      &        9875      & 23.6 \\
+	\hline
+	\hline
+	& & & ROUGE-L \\
+	\hline
+	adam  &     0.001    &        9875      & 47.5 \\
+	adadelta&       1    &        9875      & 47.3 \\
+	adam  &     0.001    &       50000      & 46.6 \\
+	\hline
+	\hline
+	& & & METEOR \\
+	\hline
+	  adam  &     0.001    &        9875      & 20.9 \\
+	adadelta&       1      &        9875      & 20.9 \\
+	  adam  &     0.001    &       50000      & 20.4 \\
+	\hline
+	\hline
+	& & & Validation-Accuracy \\
+	\hline
+	  adam  &     0.001    &       19750      & 38.7 \\
+	  sgd   &       1      &       19750      & 38.3 \\
+	  adam  &     0.001    &       50000      & 38.2 \\
+	\hline
+\end{tabular}
+\end{table}

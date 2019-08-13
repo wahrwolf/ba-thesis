@@ -8,7 +8,7 @@ I will then rank the models and compare the impact of prefix constraints between
 To ensure, that the reduction of the data set did not change the defining characteristics of the respective corpora I compared the number of words and sentence length on the reduced and original data set.
 The distributions are shown in \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
 
-The figures \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word} both show a 3x4 matrix with 3 boxplots each.
+The figures \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word} both show a 3x4 matrix with three boxplots each.
 The first two plots per row show the distribution over the language pair DE-EN, and the 3th and 4th over CS-EN.
 Each row shows the distribution of one domain.
 
@@ -16,21 +16,33 @@ All plots labeled with Q show the distribution of the original corpus.
 Plots labeled with T show the distribution of the training data and V marks the validation data.
 Outlier are not shown in the plots, instead the whiskers are extended.
 
-None of the shows major difference of the reduces corpus to the original corpus. Therefore the reduces Corpora were accepted for the further steps. 
+None of the shows major difference of the reduces corpus to the original corpus. Therefore, the reduces Corpora were accepted for the further steps. 
 
-### Number of words
-In most domains, sentences have between 0 and 50 (interquartile range). In EMEA the sentence length was mostly between 0 and 25, and the median bewtween 5 and 10 words. In all other damains the median was between 20 and 25 words per sentence. 
+### Number of words per Sentence
+\begin{figure}
+	\includegraphics[scale=1]{img/corpus_stats-sentence.png}
+	\caption{Distribution over the words per sentence}
+	\label{fig:corpus_stats-sentence}
+\end{figure}
+In most domains, sentences have between 0 and 50 words(interquartile range). In EMEA the sentence length was mostly between 0 and 25 words, and the median between 5 and 10 words. In all other domains the median was between 20 and 25 words per sentence. 
 
-In ECB the maximum number of words was 70 for German and English. EMEA was found to contain sentences up to 40 words and Europal up to 60, but the Czech sentences tend to be about 10 words shorter than English and German. __(bitte prüfen, kann das aus den Grafiken nicht gut abschätzen)__
-__However, no distinct difference between the original and reduced data sets were found.__ __chekcne ob das stimmt - das ist ja der interessante punkt, weshalb du das hier testest!__
+In ECB the maximum number of words was 70 for German and English. EMEA was found to contain sentences up to 40 words and Europal up to 60, but the Czech sentences tend to be about 10 words shorter than English and German. 
+Only in the English ECB data set, the interquartile range was slightly higher in the training set than in the original data.
+All other data sets showed no distinct differences.
 
 ### Word Length
-Words mostly had a length between 0 and 10 characters __(stimmt das?)__. The median of __(WELCEH DOMAIN)__ ranges from 5 to 10 and from 20 to 25 in the other domains. __(evt hier auch nach Sprache aufteilen - nur wenn sie unterschiedlich sind)__
+\begin{figure}
+	\includegraphics[scale=1]{img/corpus_stats-word.png}
+	\caption{Distribuion over the word lengths}
+	\label{fig:corpus_stats-word}
+\end{figure}
+Words mostly had a length between 0 and 10 characters. The median ranges from 4 to 6 in all domains. 
+\TODO{Das hier morgen nochmal angucken!}
 
 Median word lengths in all domains were between __X and X__ characters in Englsich, but __X to X__ characters in Czech in all domains. 
 Maximum word length in the german text was 20. The maximum word length for Englisch words was found to be 15, Czech leis in between.
 
-__However, no distinct difference between the original and reduced data sets were found.__ __chekcne ob das stimmt - das ist ja der interessante punkt, weshalb du das hier testest!__
+However, no distinct difference between the original and reduced data sets were found.
 
 ## Training and Optimization
 During the training of the models the training accuracy and the validation accuracy was recorded.
@@ -40,9 +52,16 @@ All models were used to translate the validation data sets after 6, 12, and 18 e
 ### Hyper Parameter
 The table in \ref{hyperparam-ranking-table} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
 Models are chracterized by optimization method, learning rate, start of the decay and METEOR score.
-The figures \ref{optim_clean-de-en} \ref{optim_tagged-de-en} \ref{optim_clean-cs-en} \ref{optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
+The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:optim_clean-cs-en} \ref{tab:optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
 
-#### Table with Validation Accuracy
+#### Tables with Scores and rankings
+\input{"tables/optim_ranking-clean-de-en.tex"}
+\input{"tables/optim_ranking-tagged-de-en.tex"}
+\input{"tables/optim_ranking-clean-cs-en.tex"}
+\input{"tables/optim_ranking-tagged-cs-en.tex"}
+
+\input{"tables/optim_table-clean-de-en.meteor.tex"}
+
 
 ### Training
 The figures \ref{train-bad_train} and \ref{train-good_train} shows the validation accuracy and the training accuracy for each training step.
