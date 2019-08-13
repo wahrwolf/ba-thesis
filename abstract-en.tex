@@ -1,0 +1,26 @@
+Translations need to be delivered in a cost-effective and speditive way.
+However, conventional translations require time and are rather expensive.
+Therefore machine translation was recently developed and became the preferred and widely used alternative. 
+Neural Machine Translation is a subset of the machine translation which already gives remarkable results but can be further optimized. One of the currently discussed optimization strategies are domain control mechanism such as the use of prefix constraints. 
+
+However, the impact of using prefix constraints on translation quality is not well explored. 
+
+This thesis aims for investigating the effects of prefix constraints on the performance of NMT across two language pairs of different relatedness. 
+
+For three domains (Law, Finance, Medical) each one open corporus available in German-English as related and Czech-English as unrelated language pair were selected as data sets. 
+
+Data preprocessing included joining the 3 domain-specific corpora into a multidomain corpus, data reduction via splitting the corpus into small(er) logical units, building a multidomain corpus, byte pair encoding to reduce the number of tokens and the application of prefix constraints resulting in 4 multidomain corpora. 
+
+These datasets were used to train an Encoder-DecoderRecurrent Neuronal Network.
+
+Three different scoring systems  (BLEU for measuring translation precision, METEOR for assessing comprehensibility of translation, ROUGE for evaluating domain specialization) were used to evaluate the impact of prefix constraints on the performance of the NMT applied on the related and distant language pair. 
+
+Data reduction did not affect the characteristics of the reduced datasets compared to the original data sets as indicated by the word length (Characters/word) and sentence length (words/sentence). (See Figures \ref{fig:corpus_stats-word}, \ref{fig:corpus_stats-sentence})
+
+Evaluation of translation performance revealed that using prefix constraints enhanced generalizability at the expense of specialized knowledge. Translation precision improved more than comprehensibility, see Figure \ref{fig:comparison_bleu}, \ref{fig:comparison_rouge}.
+
+Language comparison revealed that the metrics of translation quality (indicated by the selected 3 diff scoring systems) were different in the related (Ge-En) compared to the unrelated language pair (CZ-En), see figure \ref{fig:language-comparison}).
+This might be due to  language-related differences in the domains used for training as demonstrated here upon using the three selected corpora. 
+
+Further research is needed to predict the potential benefit of applying the domain control mechanism prefix constraints on a given language pair.
+Special attention should be given to the impact of language-related differences in the domains.
