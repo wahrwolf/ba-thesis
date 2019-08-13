@@ -70,3 +70,9 @@ It was shown by Kobus et al. \citeyear{kobus:16} that prefix constraints are ben
 Takeno et al. \citeyear{takeno:17} adapted the method for English-Japanese translation.
 To date, no comparisons of the performance impact between the prefix constraints have been made.
 Thus the question arises if the use of prefix constrains mechanisms can be generalized and used with any language pair.
+
+
+## Aims
+The problem of domain control is not yet solved and current research.
+In this thesis I want to evaluate the domain control mechanism prefix contraint and how it impacts the translation performance in different language pairs.
+I want to analyze additonaly if the relatedness of a language pair needs to be considered during multi domain corpus translation.

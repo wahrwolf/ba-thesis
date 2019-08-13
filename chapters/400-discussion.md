@@ -174,5 +174,6 @@ Projects like OpenNMT can benefit hugely from a shared collection of preparation
 
 \chapter{Conclusion}
 In conclusion, the problem of domain control in neural machine translation is very challenging and not solved in any translation-related area.
-The impact of the domain control mechanism can not always be predicted and depends on multiple factors (e.g. model, domain, language, etc.).
+The impact of the domain control mechanism prefix constraints can not always be predicted and depends on the similarity of domain distinction in the languages.
 The domain and language selection should always be considered when choosing any domain adaption mechanism.
+The connection between the impact of prefix constraints and the relatedness needs to be researched further.
