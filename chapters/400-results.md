@@ -96,11 +96,10 @@ The second graph shows the BLEU score for the same training.
 The first non-zero point is found after ca 3,000 training steps. The plots scatter for another 7,000 steps between the 10 % and 20 % mark with a linear growing tendency.
 Between the 10,000th and the 20,000th training step, the points fluctuate between the 15 % and 20 % mark.
 During the last 15,000 steps curve reaches a plateau at the 20 % mark.
-\TODO{caption fehlt}
 
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/optim_top_5.png}
-    \caption{}
+    \caption{BLEU score and the validation accuracy for the best five models}
     \label{fig:optim_top_5}
 \end{figure}
 
@@ -112,10 +111,10 @@ For the evaluation I picked the following four combinations, which are highlight
 The configurations were as follows:
 
 ## Prefix Constraints
-\TODO{caption fehlt}
+\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/language-comparison.png}
-    \caption{}
+    \caption{Score changes between language pairs for each domain}
     \label{fig:language-comparison}
 \end{figure}
 The figures \ref{fig:comparison_bleu} \ref{fig:comparison_rouge} \ref{fig:comparison_meteor} show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
@@ -124,10 +123,10 @@ The top graph shows the absolute score for the language pair German-English and 
 The first bar in each group represents the performance without prefix constraints, and the second bar with prefix constraints.
 
 ### BLEU 
-\TODO{caption fehlt}
+\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_bleu.png}
-    \caption{}
+    \caption{Comparison of BLEU score for each domain for tagged and clean data}
     \label{fig:comparison_bleu}
 \end{figure}
 In both diagrams (Fig \ref{fig:comparison_bleu}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
@@ -135,10 +134,10 @@ The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8%
 In the Czech-English pair, the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
 ### Rouge 
-\TODO{caption fehlt}
+\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_rouge.png}
-    \caption{}
+    \caption{Comparison of ROUGE-L score for each domain for tagged and clean data}
     \label{fig:comparison_rouge}
 \end{figure}
 The scores (Fig \ref{fig:comparison_rouge}) are similar for all domains except EMEA. They rank for German-English between 25% and 54%, and between 34% and 65% in Czech-English.
@@ -148,9 +147,10 @@ In Czech-English the model with prefix-constraints scored 41.07% and the model w
 The mixed data set had a score of 38% in German-English and 45% in Czech-English.
 
 ### METEOR
+\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_meteor.png}
-    \caption{}
+    \caption{Comparison of METEOR score for each domain for tagged and clean data}
     \label{fig:comparison_meteor}
 \end{figure}
 The scores (Fig \ref{fig:comparison_meteor}) are similar across all domains and language pairs, except ECB.
@@ -158,9 +158,10 @@ In Czech-English the scores ranged between 18.5% (EMEA), 17% (Europarl), 20% (mi
 The ECB in German-English achieved 25%, where both EMEA and the mixed corpus scored 18%. The Europarl corpus reached 14.5%
 
 ## Language Pairs
+\TODO{check caption}
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/language-comparison.png}
-    \caption{}
+    \caption{Score change (BLEU, ROUGE-L, METEOR)between language pairs}
     \label{fig:language-comparison}
 \end{figure}
 The figure \ref{fig:language-comparison} shows three graphs with four groups of two bars.
