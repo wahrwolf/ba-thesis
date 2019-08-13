@@ -89,6 +89,7 @@ In the English-German pair, the translation quality improved with the addition o
 In contrast in English-Czech the translation quality decreased.
 This indicates that the addition of prefix constraints improved the domain specific translation in German-English.  
 
+The second difference is the quantity of the performance change
 The performance loss in the precision (BLEU score) and comprehensibility (METEOR score) on the domain sets in the Czech-English pair are higher and the improvement in the mixed data set smaller.  
 
 \cite{Zoph:16} used multiple input languages for a neural machine translation and showed that combining languages can improve the translation quality.
@@ -105,7 +106,7 @@ My results indicate that the domain classes are more clearly defined in Czech-En
 However, additional research is needed to prove this for other language pairs and in general.
 
 # Limitations
-During my training I ran into a few issues, that might have had an impact on my results and interpretation.
+During my training I ran into assues, that might have had an impact on my results and interpretation.
 
 ## The relatedness of English-Czech and English-German and the generalization for the distance between languages
 In my testing I used Czech and German as languages that origin from different language families.
