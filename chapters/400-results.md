@@ -111,7 +111,6 @@ For the evaluation I picked the following four combinations, which are highlight
 The configurations were as follows:
 
 ## Prefix Constraints
-\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/language-comparison.png}
     \caption{Score changes between language pairs for each domain}
@@ -123,10 +122,9 @@ The top graph shows the absolute score for the language pair German-English and 
 The first bar in each group represents the performance without prefix constraints, and the second bar with prefix constraints.
 
 ### BLEU 
-\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_bleu.png}
-    \caption{Comparison of BLEU score for each domain for tagged and clean data}
+    \caption{Comparison of BLEU score for each domain for with and without prefix constraints}
     \label{fig:comparison_bleu}
 \end{figure}
 In both diagrams (Fig \ref{fig:comparison_bleu}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
@@ -134,10 +132,9 @@ The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8%
 In the Czech-English pair, the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
 ### Rouge 
-\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_rouge.png}
-    \caption{Comparison of ROUGE-L score for each domain for tagged and clean data}
+    \caption{Comparison of ROUGE-L score for each domain for with and without prefix constraints}
     \label{fig:comparison_rouge}
 \end{figure}
 The scores (Fig \ref{fig:comparison_rouge}) are similar for all domains except EMEA. They rank for German-English between 25% and 54%, and between 34% and 65% in Czech-English.
@@ -147,10 +144,9 @@ In Czech-English the model with prefix-constraints scored 41.07% and the model w
 The mixed data set had a score of 38% in German-English and 45% in Czech-English.
 
 ### METEOR
-\TODO{check caption}
 \begin{figure}
     \includegraphics[scale=1]{img/comparison_meteor.png}
-    \caption{Comparison of METEOR score for each domain for tagged and clean data}
+    \caption{Comparison of METEOR score for each domain with and without prefix constraints}
     \label{fig:comparison_meteor}
 \end{figure}
 The scores (Fig \ref{fig:comparison_meteor}) are similar across all domains and language pairs, except ECB.
