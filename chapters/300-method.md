@@ -32,11 +32,11 @@ These new corpora were aligned in German-English and Czech-English.
 I calculated the distribution of word and sentence length for the original corpora, the validation, and the training data set.
 
 ## BPE
-Byte Pair Encoding was used to reduce the number of tokens to 32,000 as suggested by \cite{kobus:16}, by running the implementation of \cite{Sennrich:15}.
+Byte Pair Encoding was used to reduce the number of tokens to 32,000 as suggested by Kobus et al. \citeyear{kobus:16}, by running the implementation of Sennrich et al. \citeyear{Sennrich:15}.
 The unique sequence (@@) was used to mark word endings and pairs.
 
 ## Prefix Constraints
-Then the domain control mechanism 'prefix constraint' was applied as described by \cite{kobus:16}
+Then the domain control mechanism 'prefix constraint' was applied as described by Kobus et al. \citeyear{kobus:16}
 For each domain, all English sentences were prefixed with a unique domain token.
 Since the BPE algorithm produced token with a specific format, the domain tokens needed only a different pre- and suffix to became unique.
 
@@ -44,7 +44,7 @@ The resulting corpora were: Not modified data in Czech-English (CZ-EN) and Germa
 In the following, I will refer to them as Clean-de-en, Clean-cs-en, Tagged-de-en, and Tagged-cs-en.
 
 # Training and Optimization
-To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and performed one hyperparameter optimization round. The used parameter was adapted from multiple sources \shortcite{kobus:16} \shortcite{Sennrich:16} \shortcite{luong:15} and will be explained subsequently.
+To evaluate the performance impact of prefix constraints, I trained a neural network \cite{bahdanau:14} and performed one hyperparameter optimization round. The used parameter was adapted from multiple sources \cite{kobus:16, Sennrich:16, luong:15} and will be explained subsequently.
 
 ## Model
 I used an Encode-Decoder Recurrent Neuronal Network with "Long Short-Term Memory" \shortcite{zaremba:14} gates, with a dropout probability of 0.3, two layers, and 1000 hidden states.
