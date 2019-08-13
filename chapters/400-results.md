@@ -154,7 +154,6 @@ In Czech-English the scores ranged between 18.5% (EMEA), 17% (Europarl), 20% (mi
 The ECB in German-English achieved 25%, where both EMEA and the mixed corpus scored 18%. The Europarl corpus reached 14.5%
 
 ## Language Pairs
-\TODO{check caption}
 \begin{figure}[h!]
     \includegraphics[scale=1]{img/language-comparison.png}
     \caption{Score change (BLEU, ROUGE-L, METEOR)between language pairs}
