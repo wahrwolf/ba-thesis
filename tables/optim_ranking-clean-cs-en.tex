@@ -6,30 +6,30 @@
 	\hline
 	optim   & learning rate & start decay steps after (Epoch)  & BLEU\\
 	\hline
-	adam &      0.01   &       10750      & 23.5 \\
-	sgd  &       1     &       10750      & 14.0 \\
-	adam &     0.001   &       50000      & 13.6 \\
+	adam &      0.01   &       5      & 23.5 \\
+	sgd  &       1     &       5      & 14.0 \\
+	adam &     0.001   &       None      & 13.6 \\
 	\hline
 	\hline
 	& & & ROUGE-L \\
 	\hline
-	adam &      0.01   &  10750 & 45.4 \\
-	adam &     0.001   &  10750 & 38.5 \\
-	sgd  &       1     &  10750 & 38.4 \\
+	adam &      0.01   &  5 & 45.4 \\
+	adam &     0.001   &  5 & 38.5 \\
+	sgd  &       1     &  5 & 38.4 \\
 	\hline
 	\hline
 	& & & METEOR \\
 	\hline
-	adam &0.01 & 10750 & 20.2 \\
-	sgd  & 1   & 10750 & 14.8 \\
-	sgd  & 1   & 21500 & 14.7 \\
+	adam &0.01 & 5 & 20.2 \\
+	sgd  & 1   & 5 & 14.8 \\
+	sgd  & 1   & 10 & 14.7 \\
 	\hline
 	\hline
 	& & & Validation-Accuracy \\
 	\hline
-	sgd  &       1   & 50000 & 50.6\\
-	adam &     0.001 & 21500 & 40.4\\
-	adam &     0.001 & 50000 & 37.8\\
+	sgd  &       1   & None & 50.6\\
+	adam &     0.001 & 10 & 40.4\\
+	adam &     0.001 & None & 37.8\\
 	\hline
 \end{tabular}
 \end{table}

@@ -1,10 +1,10 @@
-# Results
+\chapter{Results}
 In the following section I present the results of the previous described procedures.
 First I will show some statistics of my generated corpus and compare its characteristics to the source material.
 The next part comprizes exemplary visualizations of the model training and detailed metrics of these examples.
 I will then rank the models and compare the impact of prefix constraints between the two language pairs German-English and Czech-English.
 
-## Data Selection and Preparation
+# Data Selection and Preparation
 To ensure, that the reduction of the data set did not change the defining characteristics of the respective corpora I compared the number of words and sentence length on the reduced and original data set.
 The distributions are shown in \ref{fig:corpus_stats-sentence} and \ref{fig:corpus_stats-word}.
 
@@ -18,7 +18,7 @@ Outlier are not shown in the plots, instead the whiskers are extended.
 
 None of the shows major difference of the reduces corpus to the original corpus. Therefore, the reduces Corpora were accepted for the further steps. 
 
-### Number of words per Sentence
+## Number of words per Sentence
 \begin{figure}
 	\includegraphics[scale=1]{img/corpus_stats-sentence.png}
 	\caption{Distribution over the words per sentence}
@@ -30,7 +30,7 @@ In ECB the maximum number of words was 70 for German and English. EMEA was found
 Only in the English ECB data set, the interquartile range was slightly higher in the training set than in the original data.
 All other data sets showed no distinct differences.
 
-### Word Length
+## Word Length
 \begin{figure}
 	\includegraphics[scale=1]{img/corpus_stats-word.png}
 	\caption{Distribuion over the word lengths}
@@ -44,17 +44,17 @@ Maximum word length in the german text was 20. The maximum word length for Engli
 
 However, no distinct difference between the original and reduced data sets were found.
 
-## Training and Optimization
+# Training and Optimization
 During the training of the models the training accuracy and the validation accuracy was recorded.
 For a selection of models the BLEU score was calculated to visualize the learning process.
 All models were used to translate the validation data sets after 6, 12, and 18 epochs.
 
-### Hyper Parameter
-The table in \ref{hyperparam-ranking-table} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
+## Hyper Parameter
+The table in \ref{tab:ranking_example} shows the ranking of all training configurations for the corpus without prefix constraints in the DE-EN language pair.
 Models are chracterized by optimization method, learning rate, start of the decay and METEOR score.
 The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:optim_clean-cs-en} \ref{tab:optim_tagged-cs-en} show the best 3 models per corpus ranked by BLEU, METEOR, and ROUGE-L.
 
-#### Tables with Scores and rankings
+### Tables with Scores and rankings
 \input{"tables/optim_ranking-clean-de-en.tex"}
 \input{"tables/optim_ranking-tagged-de-en.tex"}
 \input{"tables/optim_ranking-clean-cs-en.tex"}
@@ -63,7 +63,7 @@ The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:opt
 \input{"tables/optim_table-clean-de-en.meteor.tex"}
 
 
-### Training
+## Training
 The figures \ref{fig:train_bad} and \ref{fig:train_good} shows the validation accuracy and the training accuracy for each training step.
 Both metrics increase in a logaritmic smanner. The trainings accuracy meets the 20 % mark after 10,000 training steps and growth to 30% in the next 25,000 training steps.
 The validation accuracy hits the 15% mark after 5,000 training steps and growths over the next 30,000 trainings steps to a value of 20 %.
@@ -73,7 +73,7 @@ The validation accuracy hits the 15% mark after 5,000 training steps and growths
 	\label{fig:train_bad}
 \end{figure}
 
-The graph in \ref{train-good_train} shows the same two metrics, which increase again ina logarithmic manner.
+The graph in \ref{fig:train_good} shows the same two metrics, which increase again ina logarithmic manner.
 The training accuracy reaches the 60 % mark after 10,000 trainings steps and gains another 20 % points over the remaining 25,000 training steps.
 After 15,000 steps, the curve begins to scatter in a growing sinus shape.
 
@@ -101,35 +101,36 @@ During the last 15,000 steps curve reaches a plateau at the 20 % mark.
 	\label{fig:optim_top_5}
 \end{figure}
 
-## Comparison and Evaluation
+# Comparison and Evaluation
 
-### Candidate Selection
-For the evaluation I picked the following four combinations, which are highlighted in \ref{}
+## Candidate Selection
+For the evaluation I picked the following four combinations, which are highlighted in the tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:optim_clean-cs-en} \ref{tab:optim_tagged-cs-en}.
+
 The configurations were as follows:
 
-### Prefix Constraints
-\begin{figure}[h!]
+## Prefix Constraints
+\begin{figure}
 	\includegraphics[scale=1]{img/language-comparison.png}
 	\caption{}
 	\label{fig:language-comparison}
 \end{figure}
-The figures \ref{1..4} show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
+The figures \ref{fig:comparison_bleu} \ref{fig:comparison_rouge} \ref{fig:comparison_meteor} show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
 All figures show two graphs with four groups of two bar diagrams each.
 The top graph shows the absolute score for the language pair German-English and the bottom graph for Czech-English.
 The first __use colour here!__ bar in each group represents the performance without prefix constraints and the second bar with prefix constraints.
 
-#### BLEU 
-\begin{figure}[h!]
+### BLEU 
+\begin{figure}
 	\includegraphics[scale=1]{img/comparison_bleu.png}
 	\caption{}
 	\label{fig:comparison_bleu}
 \end{figure}
-In both diagrams (Fig \ref{fig:comparison_blue}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
+In both diagrams (Fig \ref{fig:comparison_bleu}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
 The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8% for Europarl and 18.5% for the mixed data set.
 In the Czech-English pair the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
-#### Rouge 
-\begin{figure}[h!]
+### Rouge 
+\begin{figure}
 	\includegraphics[scale=1]{img/comparison_bleu.png}
 	\caption{}
 	\label{fig:comparison_rouge}
@@ -140,17 +141,17 @@ In the EMEA domain the German-English with prefix constrains scored 42.62% and w
 In Czech-English the model with prefix-constraints scored 41.07% and the model without 43.69%.
 The mixed data set  had a score of 38% in German-English and 45% in Czech-English
 
-#### METEOR 
-\begin{figure}[h!]
+### METEOR 
+\begin{figure}
 	\includegraphics[scale=1]{img/comparison_meteor.png}
 	\caption{}
 	\label{fig:comparison_meteor}
 \end{figure}
-The scores (Fig \cite{fig:comparison_meteor}) are similar across all domains and language pairs, except ECB.
-In Czech-English the scores ranged between 18.5% (EMEA) , 17% (Europarl), 20% (mixed) and 30% in ECB
+The scores (Fig \ref{fig:comparison_meteor}) are similar across all domains and language pairs, except ECB.
+In Czech-English the scores ranged between 18.5% (EMEA), 17% (Europarl), 20% (mixed) and 30% in ECB
 The ECB in German-English achieved 25% where both EMEA and mixed scored 18%. The Europarl reached 14.5%
 
-### Language Pairs
+## Language Pairs
 \begin{figure}[h!]
 	\includegraphics[scale=1]{img/language-comparison.png}
 	\caption{}
