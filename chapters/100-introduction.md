@@ -75,4 +75,4 @@ Thus the question arises if the use of prefix constrains mechanisms can be gener
 ## Aims
 The problem of domain control is not yet solved and current research.
 In this thesis I want to evaluate the domain control mechanism prefix contraint and how it impacts the translation performance in different language pairs.
-I want to analyze additonaly if the relatedness of a language pair needs to be considered during multi domain corpus translation.
+Additionally I want to analyze if the relatedness of a language pair needs to be considered during multi domain corpus translation.
