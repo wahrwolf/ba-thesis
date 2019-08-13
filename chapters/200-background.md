@@ -1,8 +1,8 @@
 \chapter{On the current State of Neural Machine Translation}
 In times of progressing globalization the need for fast and reliable translation increases.
 Since human translations require skill and time not only to learn but as well as to make, they are often time-consuming and expensive.
-Thus lately, machine translations are on the rise, according to \cite{castil:17}.
-The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN) since they produce the most promising results once they have been trained accordingly \shortcite{Wu:Schuster:16}
+Thus lately, machine translations are on the rise, according to Castilho et al. \citeyear{castil:17}.
+The most used technique in machine translations are Neural Machine Translation (NMT) with Recurrent Neural Networks (RNN) since they produce the most promising results once they have been trained accordingly Wu et al. \citeyear{Wu:Schuster:16}
 
 # Neural Networks (NN)
 The term "Neural Networks" describes a class of machine learning algorithms, that are general function approximations.
