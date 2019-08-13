@@ -127,7 +127,7 @@ This can be examined by rerunning the optimization with more configurations.
 ## Better Performance of the distant Language Pair
 In my results, the absolute score in all metrics was higher for Czech-English.
 This does not affect my comparison since my discussion interpreted only the relative change in the scores.
-On top of that, as \ref{} explained, the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
+On top of that, as \cite{przybocki:09} explained, the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
 In my training, the Czech-English models ran for 10 % more steps, since the corpora splits were slightly different then in the German-English corpora.
 However, as presented in \ref{data-selection-and-preparation}, the overall key metrics were similar, and the models were trained on the same number of epochs.
 As mentioned in the limitations \ref{hyper-parameter-selection-and-optimization}, the parameter selection may not have included the best model. 
