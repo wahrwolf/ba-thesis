@@ -18,12 +18,12 @@ Since this corpus contains many brand names, I assumed that the variation in the
 # Training and Optimization
 ## Training
 The overall performance of the best models, according to BLEU, indicates successful training.
-According to \cite{lavie:10} the achieved score of 20 % points in BLEU can be interpreted roughly as an understandable but bad translation as seen in \ref{tab:help_bleu}
+According to LAvie \citeyear{lavie:10} the achieved score of 20 % points in BLEU can be interpreted roughly as an understandable but bad translation as seen in table \ref{tab:help_bleu}
 The top 5 models from each corpus reached that mark after 10,000 training steps, which is equivalent to 5 epochs.
 
-The plots \ref{fig:train_bad} and \ref{fig:train_good} show typical training curves as described by \cite{lipton:15}
+The plots \ref{fig:train_bad} and \ref{fig:train_good} show typical training curves as described by Lipton et al.\citeyear{lipton:15}
 
-The validation accuracy in fig \ref{fig:train_good} indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
+The validation accuracy in figure \ref{fig:train_good} indicates no overfitting, but the difference to the training accuracy shows additional potential with a larger data set.
 
 \input{"tables/bleu_interpretation.tex"}
 
@@ -33,14 +33,14 @@ I used three different metrics to measure the quality of the translations of the
 
 ### BLEU
 The BLEU score is computed by measuring the difference between word groups and is calculated over the whole text.
-The metric was developed by \cite{Papineni:02} to measure translation quality.
+The metric was developed by Papineni et al. \citeyear{Papineni:02} to measure translation quality.
 In this thesis, the BLEU score is used to measure the overall translation precision.
-The score can be interpreted according to \cite{lavie:10}.
-As shown in fig \ref{fig:comparison_bleu}, the best model achieved a score of 24 %, which indicates an understandable translation.
+The score can be interpreted according to Lavie \citeyear{lavie:10}.
+As shown in figure \ref{fig:comparison_bleu}, the best model achieved a score of 24 %, which indicates an understandable translation.
 
 ### METEOR
 The METEOR metric was developed to improve the correlation of human judgment with the translation score.
-It is calculated on sentence levels \cite{banerjee:05}
+It is calculated on sentence levels \cite{banerjee:05}.
 I used this score to represent the comprehensibility of the translation.
 The best model scored 20 % in the mixed data set.
 However, the METEOR score can only be used for comparisons and not as scale.
@@ -60,12 +60,12 @@ It represents the fit of the model in comparison to all models, that were traine
 ## Model Selection
 During the model selection, the ranking using the overall score was similar to the ranking by individual scores.
 Since all scores rate the similarities to a reference text, an overall correlation is expected.
-This tendency is already known and described by other authors  \shortcite{przybocki:09}.
+This tendency is already known and described by other authors, for example Pryzbocki et al. \citeyear{przybocki:09}.
 
 ## Prefix constraints
-In the \ref{training-1} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
+In \ref{training-1} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
 All selected models performed best on the ECB and benefits most from prefix constraints in the Europarl corpus.
-The performance impact in the mixed test set was similar to the described impact by \cite{kobus:16}
+The performance impact in the mixed test set was similar to the described impact by Kobus et al.\citeyear{kobus:16}
 
 The overall performance showed a slight improvement when prefix constraints were provided but decreased in most corpora containing only one domain.
 
@@ -92,12 +92,12 @@ This indicates that the addition of prefix constraints improved the domain-speci
 The second difference is the quantity of the performance change
 The performance loss in the precision (BLEU score) and comprehensibility (METEOR score) on the domain sets in the Czech-English pair are higher, and the improvement in the mixed data set smaller.  
 
-\cite{Zoph:16} used multiple input languages for a neural machine translation and showed that combining languages can improve translation quality.
+Zoph & Knight \citeyear{Zoph:16} used multiple input languages for a neural machine translation and showed that combining languages can improve translation quality.
 They found that the improvement is greater when distant languages are used.
 This indicates that domains or at least ambiguities are encoded differently in languages.
 While the classification of domain membership might be of similar difficulty over all domains, the pairwise differentiation may be different.  
 
-This can also be seen in fig figure \ref{fig:comparison_bleu}, which indicates that the domain differences between FINANCE (ECB) and LAW (Euroarl) are in the selected data more obvious in Czech-English than in German-English.  
+This can also be seen in figure \ref{fig:comparison_bleu}, which indicates that the domain differences between FINANCE (ECB) and LAW (Euroarl) are in the selected data more obvious in Czech-English than in German-English.  
 
 Overall the comparison shows that prefix constraints improve the translation comprehensibility and precision whenever the domain membership is not expressed clearly through structural differences.  
   
@@ -112,10 +112,10 @@ During my training, I ran into issues, that might have had an impact on my resul
 In my testing, I used Czech and German as languages that originated from different language families.
 However, they are still related and are closer to English as for example, Japanese or Chinese.
 The results need to be verified with more data from these language pairs.
-Also, only two language pairs were tested, and the indication described in the \ref{language-comparison} needs to be evaluated on more language pairs in the future.
+Also, only two language pairs were tested, and the indication described in \ref{language-comparison} needs to be evaluated on more language pairs in the future.
 
 ## The domain Selection and the Corpus Metrics
-I used only three domains and compared very simple metrics on the corpora, and my indication \ref{language-comparison} and observation in \ref{prefix-constraints} based upon these differences between the domains.
+I used only three domains and compared very simple metrics on the corpora, and my indication (\ref{language-comparison}) and observation (\ref{prefix-constraints}) based upon these differences between the domains.
 To increase the confidence in my results, I suggest evaluating the same metrics on more domains.
 More complex metrics could be used to review my data and prove the described relationship.
 
@@ -127,10 +127,10 @@ This can be examined by rerunning the optimization with more configurations.
 ## Better Performance of the distant Language Pair
 In my results, the absolute score in all metrics was higher for Czech-English.
 This does not affect my comparison since my discussion interpreted only the relative change in the scores.
-On top of that, as \cite{przybocki:09} explained, the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
+On top of that, as Pryzbocki et al. \citeyear{przybocki:09} explained, the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
 In my training, the Czech-English models ran for 10 % more steps, since the corpora splits were slightly different then in the German-English corpora.
 However, as presented in \ref{data-selection-and-preparation}, the overall key metrics were similar, and the models were trained on the same number of epochs.
-As mentioned in the limitations \ref{hyper-parameter-selection-and-optimization}, the parameter selection may not have included the best model. 
+As mentioned in the limitations (\ref{hyper-parameter-selection-and-optimization}), the parameter selection may not have included the best model. 
 I suggest using an exact alignment for all three languages and the training with additional parameter configurations to evaluate the absolute score differences.
 
 
@@ -157,7 +157,7 @@ Based on my findings, I suggest the following future projects:
 Most domain control and adaption mechanism are only tested for one or two language pairs.
 However, my findings indicate that language selection can have a huge impact on the performance of the domain control mechanism.
 Therefore, I suggest reevaluating the findings for the domain control mechanism for additional language pairs.
-Especially since \cite{takeno:17}rely on the work of \cite{kobus:16} but use largely unrelated languages.  
+Especially since Tkeno et al. \citeyear{takeno:17}rely on the work of Kobus et al. \citeyear{kobus:16} but use largely unrelated languages.  
 
 ## Creation of a relatedness Score
 To measure the relatedness of language pairs and calculate a possible correlation with the performance on translation systems, I suggest the creation of a new and simple score.
