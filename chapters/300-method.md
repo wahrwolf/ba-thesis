@@ -49,7 +49,7 @@ To evaluate the performance impact of prefix constraints, I trained a neural net
 ## Model
 I used an Encode-Decoder Recurrent Neuronal Network with "Long Short-Term Memory" \shortcite{zaremba:14} gates, with a dropout probability of 0.3, two layers, and 1000 hidden states.
 On the source and target side, I used 500-word embeddings \cite{bahdanau:14}.
-For the attention \cite{vaswani:17} behavior I used the "general" \cite{luong:15} attention type and the "softmax" \cite{liu:16} function for the attention and the generator.
+For the attention behavior \cite{vaswani:17} I used the "general" attention type \cite{luong:15} and the "softmax"  function for the attention and the generator \cite{liu:16}.
 
 ## Hyper Parameter
 For the optimizer, I run multiple configurations.
@@ -59,8 +59,8 @@ I ran all of them with learning rates 1, 0.1 and 0.001 and started to decay the 
 The gradient was set to be renormalized if the norm over the gradient vector exceeded 5.
 
 ## Training
-I used the \cite{opennmt} framework for the implementation of the model and the training procedure.
-I built an MQTT \shortcite{light:17} scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs.
+I used the framework of Klein et al. \citeyear{opennmt} for the implementation of the model and the training procedure.
+I built an MQTT scheduler to coordinate the runs on a mixture of NVIDIA GTX 980, 1080 and 1080Ti GPUs \shortcite{light:17}.
 Each model was trained for 18 epochs, which took between 2 and 3,5 hours depending on the GPU.
 English was used in all models as the source locale and Czech and German as the target locale.
 All models were trained multiple times to ensure the proper distribution of start vectors.
@@ -74,7 +74,7 @@ To compare the score impact and evaluate a possible connection with the relatedn
 I used three different metrics to measure the translation quality of the trained neural networks (BLEU, METEOR, and Rouge-L).
 An overall score was calculated by adding the rank of all scores.
 All data preprocessing steps were removed before calculating the scores.
-The scores were calculated with the implementations of \cite{sharma:17}(METEOR, ROUGE-L) and the OpenNMT-Project \shortcite{opennmt} (BLEU).
+The scores were calculated with the implementations of Sharma et al. \citeyear{sharma:17}(METEOR, ROUGE-L) and the OpenNMT-Project \shortcite{opennmt} (BLEU).
 Since the corpus was aligned, all scores were calculated in comparison to a conventional translation.
 
 ## Model Selection
