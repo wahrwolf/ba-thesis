@@ -63,7 +63,7 @@ Since all scores rate the similarities to a reference text, an overall correlati
 This tendency is already known and described by other authors  \shortcite{przybocki:09}.
 
 ## Prefix constraints
-In the \ref{Results} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
+In the \ref{training-1} I described how the models performed according to METEOR in the different domains and how the performance changed in relation to the absolute score.
 All selected models performed best on the ECB and benefits most from prefix constraints in the Europarl corpus.
 The performance impact in the mixed test set was similar to the described impact by \cite{kobus:16}
 
