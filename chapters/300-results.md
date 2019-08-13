@@ -37,11 +37,9 @@ All other data sets showed no distinct differences.
     \label{fig:corpus_stats-word}
 \end{figure}
 Words mostly had a length between 0 and 10 characters. The median ranges from 4 to 6 in all domains. 
-\TODO{Das hier morgen nochmal angucken!}
 
-Median word lengths in all domains were between __X and X__ characters in English, but __X to X__ characters in Czech in all domains. 
-The maximum word length in the german text was 20. The maximum word length for Englisch words was found to be 15, Czech lies in between.
-\TODO{Das hier morgen nochmal angucken!}
+Median word lengths in all domains were between 1 and 15 characters in English, but 5 to 15 characters in Czech in all domains. 
+The median word length in the German text was 7. The median word length for English words was found to be 7, Czech lies in between.
 
 However, no distinct difference between the original and reduced data sets was found.
 
