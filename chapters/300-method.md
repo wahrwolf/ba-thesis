@@ -2,7 +2,7 @@
 In the following section, I introduce and present the methods used to evaluate the performance impact of the domain control mechanism "prefix constraint" in NMT across different language pairs.
 I introduce the used data sets and describe my training setup for the neural networks.
 
-The used domain control mechanism was adapted from \cite{kobus:16}, but the testing setup was changed to investigate the impact of prefix constraints in related and unrelated languages.
+The used domain control mechanism was adapted from Kobus et al. \citeyear{kobus:16}, but the testing setup was changed to investigate the impact of prefix constraints in related and unrelated languages.
 
 # Data Selection and Preparation
 To compare the performance impact of the domain control mechanism, I built a multi-domain corpus with two language pairs of different relatedness.
