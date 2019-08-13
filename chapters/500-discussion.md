@@ -112,10 +112,10 @@ During my training, I ran into issues, that might have had an impact on my resul
 In my testing, I used Czech and German as languages that originated from different language families.
 However, they are still related and are closer to English as for example, Japanese or Chinese.
 The results need to be verified with more data from these language pairs.
-Also, only two language pairs were tested, and the indication described in the \ref{langauge comparison} needs to be evaluated on more language pairs in the future.
+Also, only two language pairs were tested, and the indication described in the \ref{language-comparison} needs to be evaluated on more language pairs in the future.
 
 ## The domain Selection and the Corpus Metrics
-I used only three domains and compared very simple metrics on the corpora, and my indication \ref{langauge comparison} and observation in \ref{prefix constraint} based upon these differences between the domains.
+I used only three domains and compared very simple metrics on the corpora, and my indication \ref{language-comparison} and observation in \ref{prefix-constraints} based upon these differences between the domains.
 To increase the confidence in my results, I suggest evaluating the same metrics on more domains.
 More complex metrics could be used to review my data and prove the described relationship.
 
@@ -128,16 +128,17 @@ This can be examined by rerunning the optimization with more configurations.
 In my results, the absolute score in all metrics was higher for Czech-English.
 This does not affect my comparison since my discussion interpreted only the relative change in the scores.
 On top of that, as \ref{} explained, the scores do not represent the overall translation capabilities and are only comparable within the same language and the same corpus.
-In my training, the Czech-English models ran for 10 % more steps, since the corpora splits were slightly different than in the German-English corpora.
-However, as discussed in \ref{}, the overall key metrics were similar, and the models were trained on the same number of epochs. \TODO{Referenz einfügen}
-As mentioned in the limitations \ref{}, the parameter selection may not have included the best model. \TODO{Referenz einfügen}
-I suggest using an exact alignment for all three languages and the training with additional training configurations to support this hypothesis further. \TODO{welche Hypothese genau}
+In my training, the Czech-English models ran for 10 % more steps, since the corpora splits were slightly different then in the German-English corpora.
+However, as presented in \ref{data-selection-and-preparation}, the overall key metrics were similar, and the models were trained on the same number of epochs.
+As mentioned in the limitations \ref{hyper-parameter-selection-and-optimization}, the parameter selection may not have included the best model. 
+I suggest using an exact alignment for all three languages and the training with additional parameter configurations to evaluate the absolute score differences.
+
 
 # Perspective
 Based on my results it would be interesting to evaluate the following aspects
 ## More Domain and Language Comparison
-The indication should be evaluated with more data. \TODO{which indication}
-The evaluation with more and more diverse domains may reveal additional insights on the impact of prefix constraints.
+The indication, that the performance impact of prefix constraints is connected or even correlates with the domain distinction between the language pairs should be evaluated with more data.
+The evaluation with more and more diverse domains may reveal additional insights on the impact of prefix constraints and the connection with the domain distinction differences.
 Additional languages for the training with English source texts, as well as new and different language pairs should be tested.
 
 ## Evaluation with full Corpora
@@ -154,13 +155,14 @@ Based on my findings, I suggest the following future projects:
 Most domain control and adaption mechanism are only tested for one or two language pairs.
 However, my findings indicate that language selection can have a huge impact on the performance of the domain control mechanism.
 Therefore, I suggest reevaluating the findings for the domain control mechanism for additional language pairs.
-Especially since \ref{japsen} rely on the work of \ref{kobus} but use largely unrelated languages.
+Especially since \cite{takeno:17}rely on the work of \cite{kobus:16} but use largely unrelated languages.  
 
 ## Creation of a relatedness Score
 To measure the relatedness of language pairs and calculate a possible correlation with the performance on translation systems, I suggest the creation of a new and simple score.
-The FSI uses the necessary study time to rank the training difficulty of language pairs.
+The Foreign Service Institute  uses the necessary study time to rank the training difficulty of language pairs.
 I suggest the creation and evaluation of a score based on the median training time.
-This information can be easily collected for humans and tested for neural machine translation and can then be used to decide whether prefix constraints should be used in a model or not. \TODO{please check if BS}
+This information can be easily collected for humans and tested for neural machine translation and can then be to represent a translation disadvantage.
+
 
 ## Extend the OPUS Project
 The OPUS project hosts a variety of corpus data.
