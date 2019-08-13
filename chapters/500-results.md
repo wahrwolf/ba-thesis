@@ -64,9 +64,14 @@ The tables \ref{tab:optim_clean-de-en} \ref{tab:optim_tagged-de-en} \ref{tab:opt
 
 
 ### Training
-The figures \ref{train-bad_train} and \ref{train-good_train} shows the validation accuracy and the training accuracy for each training step.
+The figures \ref{fig:train_bad} and \ref{fig:train_good} shows the validation accuracy and the training accuracy for each training step.
 Both metrics increase in a logaritmic smanner. The trainings accuracy meets the 20 % mark after 10,000 training steps and growth to 30% in the next 25,000 training steps.
 The validation accuracy hits the 15% mark after 5,000 training steps and growths over the next 30,000 trainings steps to a value of 20 %.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/train_bad.png}
+	\caption{}
+	\label{fig:train_bad}
+\end{figure}
 
 The graph in \ref{train-good_train} shows the same two metrics, which increase again ina logarithmic manner.
 The training accuracy reaches the 60 % mark after 10,000 trainings steps and gains another 20 % points over the remaining 25,000 training steps.
@@ -74,8 +79,13 @@ After 15,000 steps, the curve begins to scatter in a growing sinus shape.
 
 The validation accuracy reaches the 30 % mark after 5,000 training steps and gains another 10 % points over the next 10,000 training steps.
 Between step 15,000 and 35,000 the graph is constant around the 40 % mark. 
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/train_good.png}
+	\caption{}
+	\label{fig:train_good}
+\end{figure}
 
-The figure \ref{optim-top_comparison} shows the BLEU score and the validation accurccay in two graphs.
+The figure \ref{fig:optim_top_5} shows the BLEU score and the validation accurccay in two graphs.
 For each metric 5 different models are plotted and the highest score is highlighted.
 In the first part of the graph, the plot scatters up to 10% points, but stabilizes after  10,000 steps.
 The validation accuracy curve is logarithmic shaped and reaches the 30% mark after 5,000 trainings steps.
@@ -85,6 +95,11 @@ The second graph shows the BLEU score for the same training.
 The first non zero point is found after ca 3,000 trainings steps. The plots scatter for another 7,000 steps between the 10 % and 20 % mark with a linear growing tendency.
 Between the 10,000th and the 20,000th trainings step the points fluctuate between the 15% and 20% mark.
 During the last 15,000 steps curve reaches a plateau at the 20 % mark.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/optim_top_5.png}
+	\caption{}
+	\label{fig:optim_top_5}
+\end{figure}
 
 ## Comparison and Evaluation
 
@@ -93,30 +108,55 @@ For the evaluation I picked the following four combinations, which are highlight
 The configurations were as follows:
 
 ### Prefix Constraints
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/language-comparison.png}
+	\caption{}
+	\label{fig:language-comparison}
+\end{figure}
 The figures \ref{1..4} show the absolute performance per domain for the three scores BLEU, ROUGE-L and METEOR.
 All figures show two graphs with four groups of two bar diagrams each.
 The top graph shows the absolute score for the language pair German-English and the bottom graph for Czech-English.
 The first __use colour here!__ bar in each group represents the performance without prefix constraints and the second bar with prefix constraints.
 
 #### BLEU 
-In both diagrams (Fig \ref{}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_bleu.png}
+	\caption{}
+	\label{fig:comparison_bleu}
+\end{figure}
+In both diagrams (Fig \ref{fig:comparison_blue}) the domain data sets show similar performance scores within the groups, but the performance per domain varied between 8% and 31% points for then German-English pair and between 15% and 41% for the Czech-English pair.
 The median scores for the German-English pair were 31% for ECB, 20% for EMEA, 8% for Europarl and 18.5% for the mixed data set.
 In the Czech-English pair the model scored a median 40% over ECB, 20.5% for EMEA, 15% for 23.5% the mixed set.
 
 #### Rouge 
-The scores (Fig \ref{}) are similar for all domains except EMEA. They rank for German-English between 25% and 54%, and between 34% and 65% in Czech-English.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_bleu.png}
+	\caption{}
+	\label{fig:comparison_rouge}
+\end{figure}
+The scores (Fig \ref{fig:comparison_rouge}) are similar for all domains except EMEA. They rank for German-English between 25% and 54%, and between 34% and 65% in Czech-English.
 The median score for ECB in German-English is 53%, for Czech-English 63.5%, and Europarl 25% for German-English and 33.5% for Czech-English.
 In the EMEA domain the German-English with prefix constrains scored 42.62% and without 45.25%.
 In Czech-English the model with prefix-constraints scored 41.07% and the model without 43.69%.
 The mixed data set  had a score of 38% in German-English and 45% in Czech-English
 
 #### METEOR 
-The scores (Fig \cite{}) are similar across all domains and language pairs, except ECB.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/comparison_meteor.png}
+	\caption{}
+	\label{fig:comparison_meteor}
+\end{figure}
+The scores (Fig \cite{fig:comparison_meteor}) are similar across all domains and language pairs, except ECB.
 In Czech-English the scores ranged between 18.5% (EMEA) , 17% (Europarl), 20% (mixed) and 30% in ECB
 The ECB in German-English achieved 25% where both EMEA and mixed scored 18%. The Europarl reached 14.5%
 
 ### Language Pairs
-The figure \ref{} shows three graphs with four groups of two bars.
+\begin{figure}[h!]
+	\includegraphics[scale=1]{img/language-comparison.png}
+	\caption{}
+	\label{fig:language-comparison}
+\end{figure}
+The figure \ref{fig:language-comparison} shows three graphs with four groups of two bars.
 Each graph represents the relative improvement of one metric measured over a model trained without prefix constraints to the model trained with prefix constraints.
 The grouped bars represent the language pairs, where the first bar is German-English and the second pair represents Czech-English.
 
