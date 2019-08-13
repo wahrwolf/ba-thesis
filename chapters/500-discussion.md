@@ -1,5 +1,5 @@
 \chapter{Discussion}
-In the following section, I review my results and compare them to the current state of the art, as well as to the prediction and research question.  \TODO{Das hier morgen nochmal angucken! - du hast keine prediction gemacht!}
+In the following section, I review my results and compare them to the current state of the art and discuss a possible connection between the relatedness of language pairs and the performance impact of the addition of prefix constraints.
 
 # Data Selection
 The distributions of the number of words and the word length show that the domains had some structural differences.
@@ -170,7 +170,7 @@ This information can be easily collected for humans and tested for neural machin
 The OPUS project hosts a variety of corpus data.
 However, the data is only available in an unstructured format.
 I invite all researchers to submit their training data and preparation scripts to generate a structured data bank.
-Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts because reproducibility is key to further separate effects of differences in corpus structure and differences in language. \TODO{please check if BS}
+Projects like OpenNMT can benefit hugely from a shared collection of preparation scripts because unity on the data sets is key to further research in the whole field.
 
 \chapter{Conclusion}
 In conclusion, the problem of domain control in neural machine translation is very challenging and not solved in any translation-related area.
