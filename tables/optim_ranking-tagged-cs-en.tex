@@ -1,0 +1,35 @@
+\begin{table}
+	\caption{Top Configurations for English-Czech with Prefix Constraints}
+	\label{tab:optim_tagged-cs-en}
+	\centering
+\begin{tabular}{|c|c|c|r|}
+	\hline
+	optim   & learning rate & start decay steps after (Epoch)  & BLEU\\
+	\hline
+		adam   &     0.001     &       10    & 23.840 \\
+		adam   &     0.001     &       5     & 13.440 \\
+		adam   &     0.001     &       None  & 12.910 \\
+	\hline
+	\hline
+	& & & ROUGE-L \\
+	\hline
+		   adam   &     0.001     &       10    & 0.450\\
+		   adam   &     0.001     &       5     & 0.372\\
+		   adam   &     0.001     &       None  & 0.367\\ 
+	\hline
+	\hline
+	& & & METEOR \\
+	\hline
+		   adam   &     0.001     &       10    & 0.203 \\
+		   adam   &     0.001     &       5     & 0.146 \\
+		   adam   &     0.001     &       None  & 0.141 \\
+	\hline
+	\hline
+	& & & Validation-Accuracy \\
+	\hline
+		   sgd    &       1       &       None  & 33.654 \\
+		   adam   &     0.001     &       None  & 33.383 \\
+		   adam   &     0.001     &       10    & 33.203 \\
+	\hline
+\end{tabular}
+\end{table}

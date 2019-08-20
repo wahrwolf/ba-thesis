@@ -1,0 +1,15 @@
+Übersetzungen müssen schnell und kostengünstig sein.
+Herkömmliche Übersetzungen sind zeitintensiv und insgesamt eher teuer.
+Maschinelle Übersetzungssysteme wurden deshalb in letzter Zeit immer beliebter und sind inzwischen allgemein akzeptiert.
+Neuronale Maschinenübersetzungen bezeichnen eine Untergruppe der machinellen Übersetzungen, die bereits heute bemerkenswert gute Ergebenisse erzielen und nach aktueller Erkenntis sogar noch Verbesserungspotential haben.
+Eine der am häufigsten diskutierten Optimierungsstrategien beschreibt die Verwendung von "Prefix Constraints" als Domänen Adaptionmechanismus.
+Die Auswirkungen der Verwendung dieses Mechanismus auf die Übersetzungsqualität sind allerdings nicht hinreichend untersucht.
+
+Für drei Bereiche (Recht, Finanzen, Medizin) wurde jeweils ein offener Korpus mit Deutsch-Englisch als verwandtes und Tschechisch-Englisch als nicht verwandtes Sprachpaar verwendet.
+Die Datenvorverarbeitung beinhaltet die Zusammenführung der 3 domänenspezifischen Korpora zu einem Multi-Domain-Korpus, die Datenreduktion durch Aufteilung des Korpus in kleine(re) logische Einheiten und das Erstellen eines Multidomain-Korpus durch Rekombination dieser Einzelkorpora, die Kodierung in häufige Subsequenzen zur Reduzierung der Anzahl der Token und die Anwendung des Domänadaptionsmechanismus "Prefix-Constraints". Daraus ergeben sich 4 Multi-Domain-Korpora.
+Drei verschiedene Bewertungsmetriken (BLEU zur Messung der Übersetzungspräzision, METEOR zur Beurteilung der Verständlichkeit und ROUGE zur Bewertung der Domänenspezialisierung) wurden verwendet, um die Auswirkungen des Adaptionsmechansimus auf die Übersetzungsleistung des NMT unter der Berücksichting des Verwandheit der Sprachpaar untereinander zu bewerten.
+Die Auswertung ergab, dass die Verwendung des Mechansimus "Prefix Constraints" die Fähigkeit zur Erkennung und Reproduktion von Gemeinsamkeiten auf Kosten der Reproduktionsfähigkeit von Domänen-Jargons verbessert.
+Der Sprachvergleich ergab, dass sich die Übersetzungsqualität (indiziert durch die ausgewählten 3 Bewertungsmetriken) im verwandten Sprachpaar (DE-EN) im Vergleich zum nicht verwandten Sprachpaar (CZ-EN) unterschieden.
+Dies könnte auf sprachbedingte Unterschiede in den Domänen zurückzuführen sein.
+Weitere Forschung ist erforderlich, um den potenziellen Nutzen der Verwendung der "Prefx Constraints" für ein bestimmtes Sprachpaar vorherzusagen.
+Besondere Aufmerksamkeit sollte der Ausprägung sprachbedingter Unterschiede zwischen Domänen geschenkt werden. 
