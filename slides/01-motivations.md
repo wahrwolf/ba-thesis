@@ -5,21 +5,22 @@
   - often extra information is needed (e.g. domain, tone)
   - different approaches available
 
-- Current NMTs use:
+- Current Neural Machine Translation Systems use:
   - constraints \shortcite{kobus:16}
   - multi source translation systems \shortcite{Zoph:16}
-  - complex attention models \shortcite{vaswanie:17}
+  - complex attention models \shortcite{vaswani:17}
 
 ## Example Sentence
-Domain: Sport
+Language German
 
-- Der Boxer erhebt sich für Geld von der Bank und betritt den Ring
-- The boxer rises up from the bench for money and enters the boxing ring.
+- Der Boxer erhebt sich für Geld von der Bank und betritt den Ring.
+- Der Boxer hebt Geld von der Bank ab und kauft den Ring.
 
-Domain: Drama
+Language: Czech
 
-- Der Boxer hebt Geld von der Bank und kauft den Ring.
-- The boxer withdraws money from the bank and buys a ring.
+- Boxer zvedá peníze od banky a vstupuje do ringu.
+- Boxer bere peníze z banky a kupuje prsten.
+
 
 ## Language Relatedness
 Languages share:
