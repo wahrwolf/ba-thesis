@@ -1,5 +1,5 @@
 # Motivation and Question
-## Motivation
+## State of the art
 - Domain control in Neural Machine Translation
   - neural networks getting pretty good in pure translation
   - often extra information is needed (e.g. domain, tone)
@@ -21,6 +21,15 @@ Language: Czech
 - Boxer zvedá peníze od banky a vstupuje do ringu.
 - Boxer bere peníze z banky a kupuje prsten.
 
+## How are domains encoded?
+- Context
+- Sentence Structure
+- Vocabulary
+
+## How does Prefix Constraints work?
+- Identify a domain by a token
+- Learn overlap, allow generalization
+- Understand the concept "Context"
 
 ## Language Relatedness
 Languages share:
@@ -37,5 +46,5 @@ Languages differ in:
 
 ## Research Questions
 1) How does prefix constraints impact the translation performance?
-2) Has the relatedness of the language pairs an effect on the performance?
+2) Has the relatedness of the language pairs an effect on the performance of prefix constraints?
 3) How important is the relatedness between language pairs in multi domain translation?

@@ -1,13 +1,13 @@
 # Method
 ## Corpus Data
-- distinct domains as used by \cite{kobus:16}
+- Distinct Domains as used by \cite{kobus:16}
   - Medical
   - Law
   - Finance
-- language pairs with different relatedness
+- Language Pairs with different Relatedness
   - English-German
   - English-Czech
-- 2 batches:
+- Two Batches:
   - without modifications
   - with prefix constraints
 

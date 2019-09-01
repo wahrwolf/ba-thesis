@@ -1,14 +1,4 @@
 # Discussion
-## How are domains encoded?
-- Context
-- Sentence Structure
-- Vocabulary
-
-## How does Prefix Constraints work?
-- Identify a domain by a token
-- Learn overlap, allow generalization
-- Understand the concept "Context"
-
 ## Findings
 - domain distinction differs between languages
 - domain distinction differences can not be predicted (yet)

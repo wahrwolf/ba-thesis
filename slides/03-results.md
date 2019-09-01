@@ -1,5 +1,5 @@
 # Results
-## Dirty Training
+## Unsuccesful Training
 \begin{figure}[h!]
     \includegraphics[scale=0.5]{img/train_bad.png}
     \caption{Example of a training curve of an unsuccsessful training}
@@ -13,7 +13,7 @@
     \label{fig:train_good}
 \end{figure}
 
-## Trainings Overview
+## Training Overview
 \begin{figure}[h!]
     \includegraphics[scale=0.5]{img/optim_top_5.png}
     \caption{BLEU score and the validation accuracy for the best five models}
@@ -54,7 +54,7 @@
 ## Domain Specialization
 - "Prefix Constraints" decreased score on all sets
 - Mixed data set without much improvement
-- Big loose in EMEA
+- Big loss in EMEA
 
 ## Cross Language Pair Comparison
 \begin{figure}

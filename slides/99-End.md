@@ -3,6 +3,6 @@
 
 \begin{center}
   Thank you for your attention.\\[1ex]
-  Any question?\\[5ex]
+  Any questions?\\[5ex]
 \end{center}
   \footnotesize
